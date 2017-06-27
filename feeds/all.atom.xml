@@ -1052,4 +1052,4 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="python firsts"></category></entry></feed>
+</content><category term="data science"></category><category term="python"></category><category term="projects"></category><category term="new york city"></category><category term="historical data"></category><category term="demography"></category><category term="genealogy"></category></entry></feed>
