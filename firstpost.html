@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>First Post | Historiscope News
+  <title>Introducing the NYC Directory Project | Historiscope News
 </title>
   <link rel="canonical" href="https://historiscope.github.io/firstpost.html">
 
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://historiscope.github.io/theme/css/style.css">
 
 
-<meta name="description" content="Thanks to digitization efforts, numerous address directories from the eighteenth and nineteenth centuries have been scanned and converted to text via optical character recognition (OCR). These directories are similar to censuses in that they contain information about residents' names, addresses, and occupations, and in some cases even marital status and ethnicity. Using Python and statistical analysis, the NYC Directory Project">
+<meta name="description" content="The NYC Directory Project uses Python to extract data from nineteenth-century address directories that have been scanned and made publicly available on Hathitrust.org (hah-tee-trust). The final result will be a demographic and geo-coded dataset that can be searched and analyzed to learn more about the residents of New York City in the 1800s.">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
 
   <div class="main">
     <div class="container">
-      <h1>First Post
+      <h1>Introducing the NYC Directory Project
 </h1>
       <hr>
 <article class="article">
@@ -1041,7 +1041,44 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thanks to digitization efforts, numerous address directories from the eighteenth and nineteenth centuries have been scanned and converted to text via optical character recognition (OCR). These directories are similar to censuses in that they contain information about residents' names, addresses, and occupations, and in some cases even marital status and ethnicity. Using Python and statistical analysis, the <strong>NYC Directory Project</strong> scrapes, cleans and parses the OCR text from publicly available directories and converts it into data that can be searched and analyzed.</p>
+<p>The NYC Directory Project uses Python to extract data from nineteenth-century address directories that have been scanned and made publicly available on <a href="http://www.hathitrust.org">Hathitrust.org</a> (<em>hah-tee-trust</em>). The final result will be a demographic and geo-coded dataset that can be searched and analyzed to learn more about the residents of New York City in the 1800s.</p>
+<p>Browsing through the directories on <a href="https://catalog.hathitrust.org/Search/Home?type%5B%5D=subject&amp;lookfor%5B%5D=%22%20New%20York%20%28N.Y.%29%20Directories.%22&amp;filter%5B%5D=topicStr%3ANew%20York%20%28N.Y.%29%20Directories&amp;ft=">Hathitrust</a>, the <a href="https://www.nypl.org/blog/2016/09/21/new-york-city-directories-free-online">New York Public Library</a>, and other sites, I was delighted at the sheer quantity of data embedded there and struck by what could be learned and accomplished by using code to clean and structure it. Historical sources such as the <a href="https://archive.org/details/us_census">United States Federal Census</a> and the <a href="https://familysearch.org/search/collection/1491284">New York State Census</a> provide a useful picture of past New York City residents, but census data exists, at best, only at five-year intervals and prior to 1850 those data are <a href="https://www.archives.gov/research/census/1790-1840.html">notably vague</a>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Address directories have long been an alternative source of information for historians and genealogists. The scanning of address directories by Google, Archive.org, and others made them widely available so that access them no longer required a physical trip to the repository that owned them. Even in digital format, however, they remained stubbornly analog, used primarily for locating individuals whose names were already known in an alphabetical index--just as originally intended. The production of text versions using OCR (optical character recognition) freed the directories from the tyranny of alphabetical order and made it possible to search the text by name, street, or occupation, for example. Unfortunately, the inconsistent quality of OCR makes these searches a game of “hit or miss,” and the directories are still limited to "look-ups,” even as the items that can be looked up have been expanded.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The NYC Directory Project is an effort  to dramatically enhance the value of historical address directories, using <a href="https://www.python.org/about/gettingstarted/">Python</a> to access, clean, and structure the text, and using statistical inference to correct OCR errors where possible. This process will make searching a single directory considerably more effective, but more importantly it will allow for the systematic analysis of data within and across address directories, providing an annual snapshot of New York City as it was (or at least, as it appeared in these directories; as I will discuss in a future post, the directories were far from a comprehensive accounting of the city’s population). And because address directories, happily, used consistent formats, this project is portable: the same code--with the inevitable tweaking, of course--can be used to unlock the past of other cities.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While this project contributes to a larger effort by Historiscope to extract and disseminate demographically meaningful data from publicly available digitized documents, it's also inspired by some personal goals. I began this project in part as a means to learn and practice writing Python code, a tool I just recently added to my wheelhouse. I <a href="mailto:info@historiscope.org">welcome and encourage</a> suggestions and corrections.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Also, somewhere in those directories are the friends and relatives of my elusive ancestor William Peck Sims, a New York City wheelwright born about 1800 and a lifelong resident of old New York. Using the Python-enhanced version of these directories, I hope to get to know him better.</p>
 </div>
 </div>
 </div>
