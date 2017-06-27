@@ -983,6 +983,7 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The NYC Directory Project uses Python to extract data from nineteenth-century address directories that have been scanned and made publicly available on &lt;a href="http://www.hathitrust.org"&gt;Hathitrust.org&lt;/a&gt; (&lt;em&gt;hah-tee-trust&lt;/em&gt;). The final result will be a demographic and geo-coded dataset that can be searched and analyzed to learn more about the residents of New York City in the 1800s.&lt;/p&gt;
+&lt;p&gt;Browsing through the directories on &lt;a href="https://catalog.hathitrust.org/Search/Home?type%5B%5D=subject&amp;amp;lookfor%5B%5D=%22%20New%20York%20%28N.Y.%29%20Directories.%22&amp;amp;filter%5B%5D=topicStr%3ANew%20York%20%28N.Y.%29%20Directories&amp;amp;ft="&gt;Hathitrust&lt;/a&gt;, the &lt;a href="https://www.nypl.org/blog/2016/09/21/new-york-city-directories-free-online"&gt;New York Public Library&lt;/a&gt;, and other sites, I was delighted at the sheer quantity of data embedded there and struck by what could be learned and accomplished by using code to clean and structure it. Historical sources such as the &lt;a href="https://archive.org/details/us_census"&gt;United States Federal Census&lt;/a&gt; and the &lt;a href="https://familysearch.org/search/collection/1491284"&gt;New York State Census&lt;/a&gt; provide a useful picture of past New York City residents, but census data exists, at best, only at five-year intervals and prior to 1850 those data are &lt;a href="https://www.archives.gov/research/census/1790-1840.html"&gt;notably vague&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -991,7 +992,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div width="45%"&gt;Browsing through the directories on [Hathitrust](https://catalog.hathitrust.org/Search/Home?type%5B%5D=subject&amp;lookfor;%5B%5D=%22%20New%20York%20%28N.Y.%29%20Directories.%22&amp;filter;%5B%5D=topicStr%3ANew%20York%20%28N.Y.%29%20Directories&amp;ft;=), the [New York Public Library](https://www.nypl.org/blog/2016/09/21/new-york-city-directories-free-online), and other sites, I was delighted at the sheer quantity of data embedded there and struck by what could be learned and accomplished by using code to clean and structure it. Historical sources such as the [United States Federal Census](https://archive.org/details/us_census) and the [New York State Census](https://familysearch.org/search/collection/1491284) provide a useful picture of past New York City residents, but census data exists, at best, only at five-year intervals and prior to 1850 those data are [notably vague](https://www.archives.gov/research/census/1790-1840.html).&lt;/div&gt;&lt;div align="center" width="45%"&gt;&lt;img alt="Doggett's 1846 Directory of New York City" src="images/Doggett-1846.jpg" width="250" /&gt;&lt;/div&gt;
+&lt;div width="45%"&gt;&lt;/div&gt;&lt;div align="center" width="45%"&gt;&lt;img alt="Doggett's 1846 Directory of New York City" src="images/Doggett-1846.jpg" width="250" /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
