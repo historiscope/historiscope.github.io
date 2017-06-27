@@ -992,7 +992,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;div style="width:50%&amp;gt;&amp;lt;img alt=" doggett&amp;#x27;s 1846 directory of new york city&amp;quot; src="images/Doggett-1846.jpg" /&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;div style="width:50%"&gt;![Doggett's 1846 Directory of New York City](images/Doggett-1846.jpg)&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
