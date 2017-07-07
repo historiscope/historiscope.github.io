@@ -1172,7 +1172,7 @@ Number of directories waiting to be scraped: 4
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div style="font-size: 12px !important; color: #4B0082;"&gt;&lt;em&gt;As a sidenote, it's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a &lt;a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt"&gt;population of approximately 1.5 million&lt;/a&gt;. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.
+&lt;div style="font-size: 85% !important; color: #4B0082;"&gt;&lt;em&gt;As a sidenote, it's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a &lt;a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt"&gt;population of approximately 1.5 million&lt;/a&gt;. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.
 
 &lt;p&gt;So what's going on here? As their (truncated) titles suggest, the 1890 and 1895 publications above were business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.&lt;/p&gt;&lt;/em&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1501,7 +1501,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The fourteen directories above are now ready to join the seventy-four directories that have already been imported. Currently that data frame has over six million rows, each representing one line of text from a directory. Once all of the ninetheenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).&lt;/p&gt;
+&lt;p&gt;The fourteen directories above are now ready to join the seventy-four directories that have already been imported. Currently that data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).&lt;/p&gt;
 &lt;p&gt;But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from the main data frame shows, many of the rows are in fact addresses:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1551,7 +1551,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;suppl_sample&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/suppl_sample.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
