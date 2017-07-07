@@ -1153,7 +1153,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Scraping-Hathitrust">Scraping Hathitrust<a class="anchor-link" href="#Scraping-Hathitrust">¶</a></h4><p>The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time (about two seconds per page; it adds up, particularly as the directories get longer over time). Happily only the directories from the 1890s remain:</p>
+<h3 id="Scraping-Hathitrust">Scraping Hathitrust<a class="anchor-link" href="#Scraping-Hathitrust">¶</a></h3><p>The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time (about two seconds per page; it adds up, particularly as the directories get longer over time). Happily only the directories from the 1890s remain:</p>
 </div>
 </div>
 </div>
@@ -1257,9 +1257,8 @@ Number of directories waiting to be scraped: 4
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="font-size: 85% !important; color: #4B0082;"><em>As a sidenote, it's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a <a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt">population of approximately 1.5 million</a>. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.
-
-<p>So what's going on here? The 1890 and 1895 publications above are business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.</p></em></div>
+<p>It's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a <a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt">population of approximately 1.5 million</a>. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.</p>
+<p>So what's going on here? The 1890 and 1895 publications above are <em>business</em> directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.</p>
 </div>
 </div>
 </div>
@@ -1268,7 +1267,8 @@ Number of directories waiting to be scraped: 4
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In addition to the four directories that need scraping, I also have some recently-scraped directories waiting in my cleaning queue. These directories exist locally as text files, but are full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so I can easily remove the markup and other extraneous text using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>. Currently, I have four directories waiting to be cleaned:</p>
+<h3 id="Cleaning">Cleaning<a class="anchor-link" href="#Cleaning">¶</a></h3><p>As each page is scraped, the page number is recorded in the "Scraped" column. If the process is interrupted, the next time the script runs, it will pick up where it left off. Once all pages in a directory have been scraped, that directory is ready for cleaning.</p>
+<p>The uncleaned directory pages exist locally as text files, but are full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so I can easily remove the markup and other extraneous text using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>. Currently four recently-scraped directories are sitting in the cleaning queue:</p>
 </div>
 </div>
 </div>
@@ -1372,7 +1372,16 @@ Number of scraped directories waiting to be cleaned: 4
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Cleaning-&amp;-Importing">Cleaning & Importing<a class="anchor-link" href="#Cleaning-&amp;-Importing">¶</a></h4><p>The cleaning process produces a collection of text files, each file containing OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. Once cleaned, the files will be imported line-by-line into an existing Pandas data frame. Currently, I have fourteen scraped and cleaned directories waiting to be imported:</p>
+<p>The cleaning process produces a collection of text files, each file containing OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. As each page is processed, the "Cleaned" column is updated with its page number.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Importing">Importing<a class="anchor-link" href="#Importing">¶</a></h3><p>Once cleaned, the files will be imported line-by-line into an existing Pandas data frame. I have fourteen scraped and cleaned directories waiting to join the seventy-four directories that have already been imported into the project data frame:</p>
 </div>
 </div>
 </div>
@@ -1566,7 +1575,7 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The fourteen directories above are now ready to join the seventy-four directories that have already been imported. Currently that data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).</p>
+<p>Currently the main data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).</p>
 <p>But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from the main data frame shows, many of the rows are in fact addresses:</p>
 </div>
 </div>
@@ -1637,6 +1646,17 @@ Number of cleaned directories waiting to be imported: 14
 2: “Washington City, January 20, 1848....
 3: 2 <n ºf le3 e3, go 4- ºr s&amp;s 4\, ºr a... 4: zºs - after may 1st, 1848, at 205 broadway. §... 5: º, mr. a. would reſer to the distinguished reputation of the hoºse of - %. ,... 6: *5 neur orders for any prints, either old or of late publication, will be *... 7: 9.4% “agréez, messieurs messinceres complimens et l&#x27;assurance forwarded to siirº... 8: agents-rushton, clark &amp; co., 110 broadway and 10 astor house; 83 broadway; 2 par... 9: ances, and an eye to economy, to... &lt; pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 </div>
 </div>
 </div>

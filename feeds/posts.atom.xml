@@ -1063,7 +1063,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Scraping-Hathitrust"&gt;Scraping Hathitrust&lt;a class="anchor-link" href="#Scraping-Hathitrust"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time (about two seconds per page; it adds up, particularly as the directories get longer over time). Happily only the directories from the 1890s remain:&lt;/p&gt;
+&lt;h3 id="Scraping-Hathitrust"&gt;Scraping Hathitrust&lt;a class="anchor-link" href="#Scraping-Hathitrust"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time (about two seconds per page; it adds up, particularly as the directories get longer over time). Happily only the directories from the 1890s remain:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1167,9 +1167,8 @@ Number of directories waiting to be scraped: 4
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div style="font-size: 85% !important; color: #4B0082;"&gt;&lt;em&gt;As a sidenote, it's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a &lt;a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt"&gt;population of approximately 1.5 million&lt;/a&gt;. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.
-
-&lt;p&gt;So what's going on here? The 1890 and 1895 publications above are business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.&lt;/p&gt;&lt;/em&gt;&lt;/div&gt;
+&lt;p&gt;It's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a &lt;a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt"&gt;population of approximately 1.5 million&lt;/a&gt;. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.&lt;/p&gt;
+&lt;p&gt;So what's going on here? The 1890 and 1895 publications above are &lt;em&gt;business&lt;/em&gt; directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1178,7 +1177,8 @@ Number of directories waiting to be scraped: 4
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;In addition to the four directories that need scraping, I also have some recently-scraped directories waiting in my cleaning queue. These directories exist locally as text files, but are full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so I can easily remove the markup and other extraneous text using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;. Currently, I have four directories waiting to be cleaned:&lt;/p&gt;
+&lt;h3 id="Cleaning"&gt;Cleaning&lt;a class="anchor-link" href="#Cleaning"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;As each page is scraped, the page number is recorded in the "Scraped" column. If the process is interrupted, the next time the script runs, it will pick up where it left off. Once all pages in a directory have been scraped, that directory is ready for cleaning.&lt;/p&gt;
+&lt;p&gt;The uncleaned directory pages exist locally as text files, but are full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so I can easily remove the markup and other extraneous text using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;. Currently four recently-scraped directories are sitting in the cleaning queue:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1282,7 +1282,16 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Cleaning-&amp;amp;-Importing"&gt;Cleaning &amp; Importing&lt;a class="anchor-link" href="#Cleaning-&amp;amp;-Importing"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The cleaning process produces a collection of text files, each file containing OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. Once cleaned, the files will be imported line-by-line into an existing Pandas data frame. Currently, I have fourteen scraped and cleaned directories waiting to be imported:&lt;/p&gt;
+&lt;p&gt;The cleaning process produces a collection of text files, each file containing OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. As each page is processed, the "Cleaned" column is updated with its page number.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Importing"&gt;Importing&lt;a class="anchor-link" href="#Importing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Once cleaned, the files will be imported line-by-line into an existing Pandas data frame. I have fourteen scraped and cleaned directories waiting to join the seventy-four directories that have already been imported into the project data frame:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1476,7 +1485,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The fourteen directories above are now ready to join the seventy-four directories that have already been imported. Currently that data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).&lt;/p&gt;
+&lt;p&gt;Currently the main data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).&lt;/p&gt;
 &lt;p&gt;But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from the main data frame shows, many of the rows are in fact addresses:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1547,6 +1556,17 @@ Number of cleaned directories waiting to be imported: 14
 2: “Washington City, January 20, 1848....
 3: 2 &lt;n ºf le3 e3, go 4- ºr s&amp;amp;s 4\, ºr a... 4: zºs - after may 1st, 1848, at 205 broadway. §... 5: º, mr. a. would reſer to the distinguished reputation of the hoºse of - %. ,... 6: *5 neur orders for any prints, either old or of late publication, will be *... 7: 9.4% “agréez, messieurs messinceres complimens et l&amp;#x27;assurance forwarded to siirº... 8: agents-rushton, clark &amp;amp; co., 110 broadway and 10 astor house; 83 broadway; 2 par... 9: ances, and an eye to economy, to... &amp;lt; pre&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
