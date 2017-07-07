@@ -2892,7 +2892,7 @@ oRhcAwAAAAAwlP8PxnEsC5VfTjkAAAAASUVORK5CYII=
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="data science"></category><category term="python"></category><category term="projects"></category><category term="new york city"></category><category term="historical data"></category><category term="visualization"></category><category term="bar plots"></category><category term="directories"></category></entry><entry><title>Scraping, Cleaning, and Importing: an Overview</title><link href="https://historiscope.github.io/CSI-Part1.html" rel="alternate"></link><published>2016-06-19T14:40:00-04:00</published><updated>2016-06-19T14:40:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-19:/CSI-Part1.html</id><summary type="html">
+</content><category term="data science"></category><category term="python"></category><category term="projects"></category><category term="new york city"></category><category term="historical data"></category><category term="visualization"></category><category term="bar plots"></category></entry><entry><title>Scraping, Cleaning, and Importing: an Overview</title><link href="https://historiscope.github.io/CSI-Part1.html" rel="alternate"></link><published>2016-06-19T14:40:00-04:00</published><updated>2016-06-19T14:40:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-19:/CSI-Part1.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
