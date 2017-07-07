@@ -1082,7 +1082,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1094,7 +1094,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/catalog.p'</span><span class="p">)</span>
@@ -1116,11 +1116,11 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span> <span class="o">></span> <span class="mi">1799</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span> <span class="o"><</span> <span class="mi">1900</span><span class="p">)]</span>
-<span class="n">select_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'title'</span><span class="p">,</span> <span class="s1">'publisher'</span><span class="p">,</span> <span class="s1">'pub_year'</span><span class="p">,</span> <span class="s1">'total_pages'</span><span class="p">,</span> <span class="s1">'scraped'</span><span class="p">,</span> <span class="s1">'cleaned'</span><span class="p">,</span> <span class="s1">'imported'</span><span class="p">]</span>
+<span class="n">select_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'publisher'</span><span class="p">,</span> <span class="s1">'pub_year'</span><span class="p">,</span> <span class="s1">'total_pages'</span><span class="p">,</span> <span class="s1">'scraped'</span><span class="p">,</span> <span class="s1">'cleaned'</span><span class="p">,</span> <span class="s1">'imported'</span><span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">select_cols</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1138,10 +1138,10 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Publisher'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">,</span> <span class="s1">'Total Pages'</span><span class="p">,</span> <span class="s1">'Scraped'</span><span class="p">,</span> <span class="s1">'Cleaned'</span><span class="p">,</span> <span class="s1">'Imported'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Publisher'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">,</span> <span class="s1">'Total Pages'</span><span class="p">,</span> <span class="s1">'Scraped'</span><span class="p">,</span> <span class="s1">'Cleaned'</span><span class="p">,</span> <span class="s1">'Imported'</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">display_names</span>
 </pre></div>
 </div>
@@ -1159,7 +1159,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unscraped</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1179,7 +1179,7 @@ Number of directories waiting to be scraped: 4
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1199,7 +1199,6 @@ Number of directories waiting to be scraped: 4
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Title</th>
 <th>Publisher</th>
 <th>Year</th>
 <th>Total Pages</th>
@@ -1211,7 +1210,6 @@ Number of directories waiting to be scraped: 4
 <tbody>
 <tr>
 <th>88</th>
-<td>Polk's (Trow's) New York copartnership and...</td>
 <td>Trow</td>
 <td>1890</td>
 <td>408</td>
@@ -1221,7 +1219,6 @@ Number of directories waiting to be scraped: 4
 </tr>
 <tr>
 <th>69</th>
-<td>New York city directory</td>
 <td>Trow</td>
 <td>1894</td>
 <td>1700</td>
@@ -1231,7 +1228,6 @@ Number of directories waiting to be scraped: 4
 </tr>
 <tr>
 <th>89</th>
-<td>Polk's (Trow's) New York copartnership and...</td>
 <td>Trow</td>
 <td>1895</td>
 <td>380</td>
@@ -1241,7 +1237,6 @@ Number of directories waiting to be scraped: 4
 </tr>
 <tr>
 <th>70</th>
-<td>New York city directory</td>
 <td>Trow</td>
 <td>1896</td>
 <td>1750</td>
@@ -1264,7 +1259,7 @@ Number of directories waiting to be scraped: 4
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="font-size: 85% !important; color: #4B0082;"><em>As a sidenote, it's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a <a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt">population of approximately 1.5 million</a>. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.
 
-<p>So what's going on here? As their (truncated) titles suggest, the 1890 and 1895 publications above were business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.</p></em></div>
+<p>So what's going on here? The 1890 and 1895 publications above are business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.</p></em></div>
 </div>
 </div>
 </div>
@@ -1279,7 +1274,7 @@ Number of directories waiting to be scraped: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unclean</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1299,7 +1294,7 @@ Number of scraped directories waiting to be cleaned: 4
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1319,7 +1314,6 @@ Number of scraped directories waiting to be cleaned: 4
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Title</th>
 <th>Publisher</th>
 <th>Year</th>
 <th>Total Pages</th>
@@ -1331,7 +1325,6 @@ Number of scraped directories waiting to be cleaned: 4
 <tbody>
 <tr>
 <th>79</th>
-<td>New York city directory</td>
 <td>Trow</td>
 <td>1880</td>
 <td>1910</td>
@@ -1341,7 +1334,6 @@ Number of scraped directories waiting to be cleaned: 4
 </tr>
 <tr>
 <th>80</th>
-<td>New York city directory</td>
 <td>Trow</td>
 <td>1886</td>
 <td>2382</td>
@@ -1351,7 +1343,6 @@ Number of scraped directories waiting to be cleaned: 4
 </tr>
 <tr>
 <th>105</th>
-<td>The Trow City Directory Co.'s, formerly...</td>
 <td>Trow</td>
 <td>1888</td>
 <td>254</td>
@@ -1361,7 +1352,6 @@ Number of scraped directories waiting to be cleaned: 4
 </tr>
 <tr>
 <th>106</th>
-<td>The Trow City Directory Co.'s, formerly...</td>
 <td>Trow</td>
 <td>1889</td>
 <td>310</td>
@@ -1388,7 +1378,7 @@ Number of scraped directories waiting to be cleaned: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ready_for_import</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Imported</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1408,7 +1398,7 @@ Number of cleaned directories waiting to be imported: 14
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1428,7 +1418,6 @@ Number of cleaned directories waiting to be imported: 14
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Title</th>
 <th>Publisher</th>
 <th>Year</th>
 <th>Total Pages</th>
@@ -1440,7 +1429,6 @@ Number of cleaned directories waiting to be imported: 14
 <tbody>
 <tr>
 <th>109</th>
-<td>Jones's New-York mercantile and general...</td>
 <td>Jones</td>
 <td>1805</td>
 <td>450</td>
@@ -1450,7 +1438,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>110</th>
-<td>Mercein's city directory, New-York register,...</td>
 <td>Mercein</td>
 <td>1820</td>
 <td>452</td>
@@ -1460,7 +1447,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>30</th>
-<td>Trow's New York city directory</td>
 <td>Trow</td>
 <td>1870</td>
 <td>1690</td>
@@ -1470,7 +1456,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>68</th>
-<td>New York city directory</td>
 <td>Trow</td>
 <td>1870</td>
 <td>1680</td>
@@ -1480,7 +1465,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>31</th>
-<td>Trow's New York city directory</td>
 <td>Trow</td>
 <td>1871</td>
 <td>1598</td>
@@ -1490,7 +1474,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>32</th>
-<td>Trow's New York city directory</td>
 <td>Trow</td>
 <td>1872</td>
 <td>1712</td>
@@ -1500,7 +1483,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>33</th>
-<td>Trow's New York city directory</td>
 <td>Trow</td>
 <td>1873</td>
 <td>1724</td>
@@ -1510,7 +1492,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>101</th>
-<td>The Trow City Directory Co.'s, formerly...</td>
 <td>Trow</td>
 <td>1874</td>
 <td>132</td>
@@ -1520,7 +1501,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>34</th>
-<td>Trow's New York city directory</td>
 <td>Trow</td>
 <td>1876</td>
 <td>1702</td>
@@ -1530,7 +1510,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>35</th>
-<td>Trow's New York city directory</td>
 <td>Trow</td>
 <td>1876</td>
 <td>1736</td>
@@ -1540,7 +1519,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>78</th>
-<td>New York city directory</td>
 <td>Trow</td>
 <td>1876</td>
 <td>1722</td>
@@ -1550,7 +1528,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>102</th>
-<td>The Trow City Directory Co.'s, formerly...</td>
 <td>Trow</td>
 <td>1876</td>
 <td>130</td>
@@ -1560,7 +1537,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>103</th>
-<td>The Trow City Directory Co.'s, formerly...</td>
 <td>Trow</td>
 <td>1878</td>
 <td>130</td>
@@ -1570,7 +1546,6 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>104</th>
-<td>The Trow City Directory Co.'s, formerly...</td>
 <td>Trow</td>
 <td>1879</td>
 <td>156</td>
@@ -1598,7 +1573,7 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">address_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/address_sample.p'</span><span class="p">)</span>
@@ -1641,7 +1616,7 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">suppl_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/suppl_sample.p'</span><span class="p">)</span>

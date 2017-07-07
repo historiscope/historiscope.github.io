@@ -992,7 +992,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
@@ -1004,7 +1004,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/catalog.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1026,11 +1026,11 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt; &lt;span class="o"&gt;&gt;&lt;/span&gt; &lt;span class="mi"&gt;1799&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="mi"&gt;1900&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-&lt;span class="n"&gt;select_cols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'title'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'total_pages'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'scraped'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'cleaned'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;select_cols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'total_pages'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'scraped'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'cleaned'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;select_cols&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1048,10 +1048,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;display_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Title'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Total Pages'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Scraped'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Cleaned'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;display_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Total Pages'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Scraped'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Cleaned'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;display_names&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1069,7 +1069,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [14]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unscraped&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Scraped&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1089,7 +1089,7 @@ Number of directories waiting to be scraped: 4
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[14]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -1109,7 +1109,6 @@ Number of directories waiting to be scraped: 4
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Title&lt;/th&gt;
 &lt;th&gt;Publisher&lt;/th&gt;
 &lt;th&gt;Year&lt;/th&gt;
 &lt;th&gt;Total Pages&lt;/th&gt;
@@ -1121,7 +1120,6 @@ Number of directories waiting to be scraped: 4
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;th&gt;88&lt;/th&gt;
-&lt;td&gt;Polk's (Trow's) New York copartnership and...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1890&lt;/td&gt;
 &lt;td&gt;408&lt;/td&gt;
@@ -1131,7 +1129,6 @@ Number of directories waiting to be scraped: 4
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;69&lt;/th&gt;
-&lt;td&gt;New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1894&lt;/td&gt;
 &lt;td&gt;1700&lt;/td&gt;
@@ -1141,7 +1138,6 @@ Number of directories waiting to be scraped: 4
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;89&lt;/th&gt;
-&lt;td&gt;Polk's (Trow's) New York copartnership and...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1895&lt;/td&gt;
 &lt;td&gt;380&lt;/td&gt;
@@ -1151,7 +1147,6 @@ Number of directories waiting to be scraped: 4
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;70&lt;/th&gt;
-&lt;td&gt;New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1896&lt;/td&gt;
 &lt;td&gt;1750&lt;/td&gt;
@@ -1174,7 +1169,7 @@ Number of directories waiting to be scraped: 4
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="font-size: 85% !important; color: #4B0082;"&gt;&lt;em&gt;As a sidenote, it's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a &lt;a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt"&gt;population of approximately 1.5 million&lt;/a&gt;. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.
 
-&lt;p&gt;So what's going on here? As their (truncated) titles suggest, the 1890 and 1895 publications above were business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.&lt;/p&gt;&lt;/em&gt;&lt;/div&gt;
+&lt;p&gt;So what's going on here? The 1890 and 1895 publications above are business directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.&lt;/p&gt;&lt;/em&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1189,7 +1184,7 @@ Number of directories waiting to be scraped: 4
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unclean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Scraped&lt;/span&gt; &lt;span class="o"&gt;&gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Cleaned&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1209,7 +1204,7 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[15]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -1229,7 +1224,6 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Title&lt;/th&gt;
 &lt;th&gt;Publisher&lt;/th&gt;
 &lt;th&gt;Year&lt;/th&gt;
 &lt;th&gt;Total Pages&lt;/th&gt;
@@ -1241,7 +1235,6 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;th&gt;79&lt;/th&gt;
-&lt;td&gt;New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1880&lt;/td&gt;
 &lt;td&gt;1910&lt;/td&gt;
@@ -1251,7 +1244,6 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;80&lt;/th&gt;
-&lt;td&gt;New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1886&lt;/td&gt;
 &lt;td&gt;2382&lt;/td&gt;
@@ -1261,7 +1253,6 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;105&lt;/th&gt;
-&lt;td&gt;The Trow City Directory Co.'s, formerly...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1888&lt;/td&gt;
 &lt;td&gt;254&lt;/td&gt;
@@ -1271,7 +1262,6 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;106&lt;/th&gt;
-&lt;td&gt;The Trow City Directory Co.'s, formerly...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1889&lt;/td&gt;
 &lt;td&gt;310&lt;/td&gt;
@@ -1298,7 +1288,7 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [16]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ready_for_import&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Cleaned&lt;/span&gt; &lt;span class="o"&gt;&gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Imported&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1318,7 +1308,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[16]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -1338,7 +1328,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Title&lt;/th&gt;
 &lt;th&gt;Publisher&lt;/th&gt;
 &lt;th&gt;Year&lt;/th&gt;
 &lt;th&gt;Total Pages&lt;/th&gt;
@@ -1350,7 +1339,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;th&gt;109&lt;/th&gt;
-&lt;td&gt;Jones's New-York mercantile and general...&lt;/td&gt;
 &lt;td&gt;Jones&lt;/td&gt;
 &lt;td&gt;1805&lt;/td&gt;
 &lt;td&gt;450&lt;/td&gt;
@@ -1360,7 +1348,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;110&lt;/th&gt;
-&lt;td&gt;Mercein's city directory, New-York register,...&lt;/td&gt;
 &lt;td&gt;Mercein&lt;/td&gt;
 &lt;td&gt;1820&lt;/td&gt;
 &lt;td&gt;452&lt;/td&gt;
@@ -1370,7 +1357,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;30&lt;/th&gt;
-&lt;td&gt;Trow's New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1870&lt;/td&gt;
 &lt;td&gt;1690&lt;/td&gt;
@@ -1380,7 +1366,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;68&lt;/th&gt;
-&lt;td&gt;New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1870&lt;/td&gt;
 &lt;td&gt;1680&lt;/td&gt;
@@ -1390,7 +1375,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;31&lt;/th&gt;
-&lt;td&gt;Trow's New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1871&lt;/td&gt;
 &lt;td&gt;1598&lt;/td&gt;
@@ -1400,7 +1384,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;32&lt;/th&gt;
-&lt;td&gt;Trow's New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1872&lt;/td&gt;
 &lt;td&gt;1712&lt;/td&gt;
@@ -1410,7 +1393,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;33&lt;/th&gt;
-&lt;td&gt;Trow's New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1873&lt;/td&gt;
 &lt;td&gt;1724&lt;/td&gt;
@@ -1420,7 +1402,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;101&lt;/th&gt;
-&lt;td&gt;The Trow City Directory Co.'s, formerly...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1874&lt;/td&gt;
 &lt;td&gt;132&lt;/td&gt;
@@ -1430,7 +1411,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;34&lt;/th&gt;
-&lt;td&gt;Trow's New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1876&lt;/td&gt;
 &lt;td&gt;1702&lt;/td&gt;
@@ -1440,7 +1420,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;35&lt;/th&gt;
-&lt;td&gt;Trow's New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1876&lt;/td&gt;
 &lt;td&gt;1736&lt;/td&gt;
@@ -1450,7 +1429,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;78&lt;/th&gt;
-&lt;td&gt;New York city directory&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1876&lt;/td&gt;
 &lt;td&gt;1722&lt;/td&gt;
@@ -1460,7 +1438,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;102&lt;/th&gt;
-&lt;td&gt;The Trow City Directory Co.'s, formerly...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1876&lt;/td&gt;
 &lt;td&gt;130&lt;/td&gt;
@@ -1470,7 +1447,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;103&lt;/th&gt;
-&lt;td&gt;The Trow City Directory Co.'s, formerly...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1878&lt;/td&gt;
 &lt;td&gt;130&lt;/td&gt;
@@ -1480,7 +1456,6 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;104&lt;/th&gt;
-&lt;td&gt;The Trow City Directory Co.'s, formerly...&lt;/td&gt;
 &lt;td&gt;Trow&lt;/td&gt;
 &lt;td&gt;1879&lt;/td&gt;
 &lt;td&gt;156&lt;/td&gt;
@@ -1508,7 +1483,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [8]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [17]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;address_sample&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/address_sample.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1551,7 +1526,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [18]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;suppl_sample&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/suppl_sample.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
