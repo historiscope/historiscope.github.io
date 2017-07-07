@@ -5,7 +5,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Before I can start parsing the address entries into distinct fields, I have to get the OCRed directories from their home on &lt;a href="https://hathitrust.org"&gt;Hathitrust&lt;/a&gt; and put them into my main data frame. I've already done that for most of the nineteenth-century New York City directories using a three-step process of scraping, cleaning, and importing the data. Before wrapping that up, I want to take a snapshot of this process for my blog. I'll begin with a general overview.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;Before I can start parsing the address entries into distinct fields, I first have to get the OCRed directories from their home on &lt;a href="https://hathitrust.org"&gt;Hathitrust&lt;/a&gt; and into my main data frame. I've already done that for most of the nineteenth-century New York City directories using a three-step process of scraping, cleaning, and importing the data. Before wrapping that up, I want to take a snapshot of this process for my blog. I'll begin with a general overview.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -986,7 +986,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Before I can start parsing the address entries into distinct fields, I have to get the OCRed directories from their home on &lt;a href="https://hathitrust.org"&gt;Hathitrust&lt;/a&gt; and put them into my main data frame. I've already done that for most of the nineteenth-century New York City directories using a three-step process of scraping, cleaning, and importing the data. Before wrapping that up, I want to take a snapshot of this process for my blog. I'll begin with a general overview.&lt;/p&gt;
+&lt;p&gt;Before I can start parsing the address entries into distinct fields, I first have to get the OCRed directories from their home on &lt;a href="https://hathitrust.org"&gt;Hathitrust&lt;/a&gt; and into my main data frame. I've already done that for most of the nineteenth-century New York City directories using a three-step process of scraping, cleaning, and importing the data. Before wrapping that up, I want to take a snapshot of this process for my blog. I'll begin with a general overview.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
