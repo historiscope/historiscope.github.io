@@ -1091,7 +1091,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;And...the plot:&lt;/p&gt;
+&lt;p&gt;And, finally...the plot itself:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2831,7 +2831,15 @@ oRhcAwAAAAAwlP8PxnEsC5VfTjkAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;No single repository has contributed more than one copy of a given directory edition (Princeton's two contributions for 1842 are separate publications by Doggett and Longworth). An unsurprising result, but good to know.&lt;/p&gt;
+&lt;p&gt;No single repository has contributed more than one copy of a given edition (Princeton's two contributions for 1842 are separate publications by Doggett and Longworth). An unsurprising result, but good to know.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I have to make a few more tweaks to the data--identifying and excluding the business directories, for example. But after that, let the parsing begin...&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
