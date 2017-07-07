@@ -1,11 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Historiscope News - posts</title><link href="https://historiscope.github.io/" rel="alternate"></link><link href="https://historiscope.github.io/feeds/posts.atom.xml" rel="self"></link><id>https://historiscope.github.io/</id><updated>2016-06-26T16:15:00-04:00</updated><entry><title>Fun with Bar Plots: Examining the Holdings</title><link href="https://historiscope.github.io/Holdings.html" rel="alternate"></link><published>2016-06-26T16:15:00-04:00</published><updated>2016-06-26T16:15:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-26:/Holdings.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;, I wrote a &lt;a href="https://historiscope.github.io/scraping_hathitrust_part_1"&gt;script&lt;/a&gt; to identify and gather the holdings information for the New York City directory collection in the Hathitrust catalog. The holdings information I scraped includes useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what all that scraping hath wrought. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="https://historiscope.github.io/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://historiscope.github.io/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="https://historiscope.github.io/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="https://historiscope.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Historiscope News Atom">
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#6699ff">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#6699ff">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="author" content="Ruth Martin" />
+<meta name="description" content="Using BeautifulSoup, I wrote a script to identify and gather the holdings information for the New York City directory collection in the Hathitrust catalog. The holdings information I scraped includes useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what all that scraping hath wrought. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository." />
+<meta name="keywords" content="data science, python, projects, new york city, historical data, visualization, bar plots, directories">
+<meta property="og:site_name" content="Historiscope News"/>
+<meta property="og:title" content="Fun with Bar Plots: Examining the Holdings"/>
+<meta property="og:description" content="Using BeautifulSoup, I wrote a script to identify and gather the holdings information for the New York City directory collection in the Hathitrust catalog. The holdings information I scraped includes useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what all that scraping hath wrought. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://historiscope.github.io/Holdings.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-06-26 16:15:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://historiscope.github.io/author/ruth-martin.html">
+<meta property="article:section" content="posts"/>
+<meta property="article:tag" content="data science"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="projects"/>
+<meta property="article:tag" content="new york city"/>
+<meta property="article:tag" content="historical data"/>
+<meta property="article:tag" content="visualization"/>
+<meta property="article:tag" content="bar plots"/>
+<meta property="article:tag" content="directories"/>
+<meta property="og:image" content="">
+
+  <title>Historiscope News &ndash; Fun with Bar Plots: Examining the Holdings</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://historiscope.github.io">
+        <img src="https://historiscope.github.io/theme/img/profile.png" alt="Ruth Martin" title="Ruth Martin">
+      </a>
+      <h1><a href="https://historiscope.github.io">Ruth Martin</a></h1>
+
+<p>Data Wrangler @ Historiscope</p>
+      <nav>
+        <ul class="list">
+
+          <li><a href="http://www.historiscope.org" target="_blank">Historiscope</a></li>
+          <li><a href="https://www.linkedin.com/in/ruthsmartin/" target="_blank">linkedIn</a></li>
+          <li><a href="https://historiscope.github.io" target="_blank">github</a></li>
+          <li><a href="mailto:ruthmartin@historiscope.org" target="_blank">e-mail</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="Holdings">Fun with Bar Plots: Examining the Holdings</h1>
+    <p>
+          Posted on Sun 26 June 2016 in <a href="https://historiscope.github.io/category/posts.html">posts</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -236,7 +325,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell &gt; div.prompt {
+  div.unrecognized_cell > div.prompt {
     display: none;
   }
 }
@@ -289,19 +378,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area &gt; div.highlight {
+div.input_area > div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area &gt; div.highlight &gt; pre {
+div.input_area > div.highlight > pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+/* The following gets added to the <head> if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -347,7 +436,7 @@ div.input_area &gt; div.highlight &gt; pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 Adapted from GitHub theme
 
 */
@@ -809,7 +898,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell &gt; div.prompt {
+  div.text_cell > div.prompt {
     display: none;
   }
 }
@@ -874,8 +963,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-&lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -943,8 +1032,8 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -980,157 +1069,157 @@ h6:hover .anchor-link {
 .ansi-white-intense-bg { background-color: #A1A6B2; }
 
 .ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;, I wrote a &lt;a href="https://historiscope.github.io/scraping_hathitrust_part_1"&gt;script&lt;/a&gt; to identify and gather the holdings information for the New York City directory collection in the Hathitrust catalog. The holdings information I scraped includes useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what all that scraping hath wrought. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.&lt;/p&gt;
-&lt;p&gt;To get started, after importing my libraries, I'll load the data. Although I have a few directories from the 1799s and the 1900s, I'm only interested in the nineteenth century for the moment, so I'll limit the data frame to that era:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.ticker&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AutoMinorLocator&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;shuffle&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;itertools&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;cycle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;islice&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# import the data&lt;/span&gt;
-&lt;span class="n"&gt;cols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'repository'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'publisher'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/catalog.p'&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, I wrote a <a href="https://historiscope.github.io/scraping_hathitrust_part_1">script</a> to identify and gather the holdings information for the New York City directory collection in the Hathitrust catalog. The holdings information I scraped includes useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what all that scraping hath wrought. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.</p>
+<p>To get started, after importing my libraries, I'll load the data. Although I have a few directories from the 1799s and the 1900s, I'm only interested in the nineteenth century for the moment, so I'll limit the data frame to that era:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="k">import</span> <span class="n">AutoMinorLocator</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">shuffle</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">islice</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import the data</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'pub_year'</span><span class="p">,</span> <span class="s1">'repository'</span><span class="p">,</span> <span class="s1">'publisher'</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/catalog.p'</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span>
 
-&lt;span class="c1"&gt;# limit the data frame to the 19th century&lt;/span&gt;
-&lt;span class="n"&gt;min_year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1800&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1900&lt;/span&gt;
-&lt;span class="n"&gt;era&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt; &lt;span class="o"&gt;&gt;=&lt;/span&gt; &lt;span class="n"&gt;min_year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;max_year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;era&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Also, I'll set some formatting variables and lists that will help me generate nice-looking plots.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Plot Settings #########################################################&lt;/span&gt;
-&lt;span class="c1"&gt;# set variables for font size&lt;/span&gt;
-&lt;span class="n"&gt;xtick_lab_fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;14&lt;/span&gt;
-&lt;span class="n"&gt;ytick_lab_fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;
-&lt;span class="n"&gt;ylab_fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
-&lt;span class="n"&gt;title_fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;
+<span class="c1"># limit the data frame to the 19th century</span>
+<span class="n">min_year</span><span class="p">,</span> <span class="n">max_year</span> <span class="o">=</span> <span class="mi">1800</span><span class="p">,</span> <span class="mi">1900</span>
+<span class="n">era</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span> <span class="o">>=</span> <span class="n">min_year</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span> <span class="o"><</span> <span class="n">max_year</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">era</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Also, I'll set some formatting variables and lists that will help me generate nice-looking plots.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot Settings #########################################################</span>
+<span class="c1"># set variables for font size</span>
+<span class="n">xtick_lab_fs</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">ytick_lab_fs</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">ylab_fs</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">title_fs</span> <span class="o">=</span> <span class="mi">24</span>
 
-&lt;span class="c1"&gt;# set minor ticks&lt;/span&gt;
-&lt;span class="n"&gt;minor_locator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AutoMinorLocator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set minor ticks</span>
+<span class="n">minor_locator</span> <span class="o">=</span> <span class="n">AutoMinorLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the colors for the bars in Figures 2 and 3&lt;/span&gt;
-&lt;span class="n"&gt;col_sch1_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'#285C77'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#53C4C6'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#CBC15B'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#A147C2'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#C95E64'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#917930'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#3DB86A'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;col_scheme1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;islice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cycle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;col_sch1_list&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+<span class="c1"># set the colors for the bars in Figures 2 and 3</span>
+<span class="n">col_sch1_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#285C77'</span><span class="p">,</span> <span class="s1">'#53C4C6'</span><span class="p">,</span> <span class="s1">'#CBC15B'</span><span class="p">,</span> <span class="s1">'#A147C2'</span><span class="p">,</span> <span class="s1">'#C95E64'</span><span class="p">,</span> <span class="s1">'#917930'</span><span class="p">,</span> <span class="s1">'#3DB86A'</span><span class="p">]</span>
+<span class="n">col_scheme1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">cycle</span><span class="p">(</span><span class="n">col_sch1_list</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
 
-&lt;span class="n"&gt;col_sch2_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'#E15D5D'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#C28B47'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#C1A544'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#62AA5E'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#3EC5CE'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#9CA5DE'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'#5C349D'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;col_scheme2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;islice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cycle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;col_sch2_list&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+<span class="n">col_sch2_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#E15D5D'</span><span class="p">,</span> <span class="s1">'#C28B47'</span><span class="p">,</span> <span class="s1">'#C1A544'</span><span class="p">,</span> <span class="s1">'#62AA5E'</span><span class="p">,</span> <span class="s1">'#3EC5CE'</span><span class="p">,</span> <span class="s1">'#9CA5DE'</span><span class="p">,</span> <span class="s1">'#5C349D'</span><span class="p">]</span>
+<span class="n">col_scheme2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">cycle</span><span class="p">(</span><span class="n">col_sch2_list</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
 
-&lt;span class="n"&gt;bar_width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;75&lt;/span&gt;
-&lt;span class="n"&gt;fig_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;For my first plot, I'd like to get a general look at the how many directories I have for each year in the nineteenth century. I know that I don't have a directory for every year in the ninetheenth century, and I'd like my plot to display the gaps in my collection. To that end, I'll reindex the data to all of the years from 1800 to 1900. This way any years for which I don't have a directory will show up visually on the bar plot.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# expand index to include all years from 1800 to 1900&lt;/span&gt;
-&lt;span class="n"&gt;all_years&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min_year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_year&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;new_index&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;all_years&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reindex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_index&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;And...the plot:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# set type, bar width, and figure size for the first plot&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kind&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bar_width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="n">bar_width</span> <span class="o">=</span> <span class="o">.</span><span class="mi">75</span>
+<span class="n">fig_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For my first plot, I'd like to get a general look at the how many directories I have for each year in the nineteenth century. I know that I don't have a directory for every year in the ninetheenth century, and I'd like my plot to display the gaps in my collection. To that end, I'll reindex the data to all of the years from 1800 to 1900. This way any years for which I don't have a directory will show up visually on the bar plot.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># expand index to include all years from 1800 to 1900</span>
+<span class="n">all_years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">min_year</span><span class="p">,</span> <span class="n">max_year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">new_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">all_years</span><span class="p">)</span>
+<span class="n">df_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'pub_year'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">new_index</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And...the plot:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># set type, bar width, and figure size for the first plot</span>
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">df_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="n">fig_size</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the plot title, size, and placement&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Number of Directories in the New York City Directory Project by Publication Year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;title_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the plot title, size, and placement</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Number of Directories in the New York City Directory Project by Publication Year'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="n">title_fs</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the x-axis ticks, minor ticks, and tick-labels&lt;/span&gt;
-&lt;span class="n"&gt;x_lab&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min_year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;interp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xtick_lab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_minor_locator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minor_locator&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the x-axis ticks, minor ticks, and tick-labels</span>
+<span class="n">x_lab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">min_year</span><span class="p">,</span> <span class="n">max_year</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_lab</span><span class="p">,</span> <span class="n">df_year</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df_year</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_lab</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="n">xtick_lab_fs</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">minor_locator</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the y-axis ticks and label&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'number of directories'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ylab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;max_y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;span class="n"&gt;min_y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;span class="n"&gt;y_lab&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min_y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_lab&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ytick_lab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the y-axis ticks and label</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'number of directories'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="n">ylab_fs</span><span class="p">)</span>
+<span class="n">max_y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">min_y</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">y_lab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">min_y</span><span class="p">,</span> <span class="n">max_y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_lab</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_lab</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="n">ytick_lab_fs</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# et voila&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+<span class="c1"># et voila</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xm4PEdZL/DvC4EsbElIIBGNAVFBUbYoCiKgIHhVVlGu
 IIYtgrKpqKCoAWVREZFNCFvAiyAgILKJKAFcEILsCCokIEjCkpUQQiB1/6ienM5k5pyZs/zOJOfz
 eZ55Zqa7urumu3qZt6urqrUWAAAAAABYFVfY7QwAAAAAAMCYwDUAAAAAACtF4BoAAAAAgJUicA0A
@@ -1564,58 +1653,58 @@ TEYyGclkJJORTJbsIBbXb01y8yMc7yS1pFmmQiYjmYxkspk8RjIZyWQkk5FMRjIZyWQkk5FMNpPH
 SCYjmYxkMpLJSCYjmSzZgTvHdZKnJDnhCMc/lOROS5plKmQykslIJpvJYySTkUxGMhnJZCSTkUxG
 MhnJZDN5jGQykslIJiOZjGQyksmSHbhzXAMAAAAAsL8dxFOFAAAAAACwjymuAQAAAACYFMU1ILoC
 9AAAAB5JREFUAAAAAACTorgGAAAAAGBSFNcAAAAAAEzK/wMlMOiOIWmeQgAAAABJRU5ErkJggg==
-" /&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;As the plot shows, there are some significant gaps, particluarly in the first and last quarter of the nineteenth century. Some day I'll try to fill in those gaps, possibly using the excellent collection &lt;a href="https://www.nypl.org/blog/2016/09/21/new-york-city-directories-free-online"&gt;currently being digitized by the New York City Public Library&lt;/a&gt;. For now, I'll take solace in the fact that I have an unbroken collection from 1832 to 1861.  Not bad.&lt;/p&gt;
-&lt;p&gt;The plot also shows that for certain years I have more than one directory, but it doesn't tell us whether those directories are duplicate volumes or competing directories. Duplicates occur in Hathitrust when two or more repositories each owned and digitized a copy of the same directory--Trow's 1876 New York City Directory, for example. Strictly speaking, these digitized versions are not duplicates of each other, as the originals--now well more than a century old--are frequently missing pages or vary in other significant ways. The quality of the scans themselves can vary, so having duplicates could prove to be very helpful for our analysis.&lt;/p&gt;
-&lt;p&gt;To determine how many duplicates might exist, I'll reproduce the bar plot, this time grouping the directories by publisher. As before, I'll reindex the data with the full range of years so gaps will show in the bar chart.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#set up the data to group by publisher&lt;/span&gt;
-&lt;span class="n"&gt;df_year_pub&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'publisher'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unstack&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'publisher'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_year_pub&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_year_pub&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reindex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_index&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As the plot shows, there are some significant gaps, particluarly in the first and last quarter of the nineteenth century. Some day I'll try to fill in those gaps, possibly using the excellent collection <a href="https://www.nypl.org/blog/2016/09/21/new-york-city-directories-free-online">currently being digitized by the New York City Public Library</a>. For now, I'll take solace in the fact that I have an unbroken collection from 1832 to 1861.  Not bad.</p>
+<p>The plot also shows that for certain years I have more than one directory, but it doesn't tell us whether those directories are duplicate volumes or competing directories. Duplicates occur in Hathitrust when two or more repositories each owned and digitized a copy of the same directory--Trow's 1876 New York City Directory, for example. Strictly speaking, these digitized versions are not duplicates of each other, as the originals--now well more than a century old--are frequently missing pages or vary in other significant ways. The quality of the scans themselves can vary, so having duplicates could prove to be very helpful for our analysis.</p>
+<p>To determine how many duplicates might exist, I'll reproduce the bar plot, this time grouping the directories by publisher. As before, I'll reindex the data with the full range of years so gaps will show in the bar chart.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set up the data to group by publisher</span>
+<span class="n">df_year_pub</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'pub_year'</span><span class="p">,</span> <span class="s1">'publisher'</span><span class="p">])</span><span class="o">.</span><span class="n">pub_year</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">'publisher'</span><span class="p">)</span>
+<span class="n">df_year_pub</span> <span class="o">=</span> <span class="n">df_year_pub</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">new_index</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
-&lt;span class="c1"&gt;# set type, bar width, and figure size for the second plot&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_year_pub&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kind&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bar_width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stacked&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;col_scheme1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set type, bar width, and figure size for the second plot</span>
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">df_year_pub</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="n">fig_size</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">col_scheme1</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the plot title, size, and placement&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Number of Directories per Year grouped by Publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;title_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the plot title, size, and placement</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Number of Directories per Year grouped by Publisher'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the x-axis ticks, minor ticks, and tick-labels&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;interp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xtick_lab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_minor_locator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minor_locator&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the x-axis ticks, minor ticks, and tick-labels</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_lab</span><span class="p">,</span> <span class="n">df_year</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df_year</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_lab</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="n">xtick_lab_fs</span><span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">minor_locator</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the y-axis ticks and label&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'number of directories'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ylab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_lab&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ytick_lab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the y-axis ticks and label</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'number of directories'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">ylab_fs</span><span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_lab</span><span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_lab</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">ytick_lab_fs</span><span class="p">)</span>
 
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xl8VNXdx/Hvz7Avgihu0Bq1giQQgoSgUsIiS6uIoFIX
 VJRqi4ggPvJoRSsubbWiVRBKtShuVRRUcHuwVtkUgaAB2RWNVGXfESNZzvPHvZMMw8xksjET+Lxf
 r/ua3HvPufd31yS/e+Zcc84JAAAAAAAAAIBEcVS8AwAAAAAAAAAAIBiJawAAAAAAAABAQiFxDQAA
@@ -2121,65 +2210,65 @@ NGmaNE1Wdow3rt9J8tg1rs8kY6VZ9kKTpknTZEmPpknTpGnSNGmaNE2aJk2TJT2aJk2TpknTpGnS
 NFnZ0e24TvLLJPdc4/pfkzy10ix7oUnTpGmypEfTpGnSNGmaNE2aJk2TpsmSHk2TpknTpGnSNGma
 rOzodlwDAAAAAHBrO8ZVIQAAAAAA3MLcuAYAAAAAYFfcuAYAAAAAYFfcuAYAAAAAYFfcuAYAAAAA
 YFc+B2E/bU3EC0QFAAAAAElFTkSuQmCC
-" /&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;As the bar plot shows, the collection contains a number of "duplicate" directories.  There are three copies of the Longworth directory for each of the years from 1834 to 1836, for example, multiple copies of most of the Doggett directories, and four copies of the 1876 Trow directory. (As I've discussed &lt;a href="https://historiscope.github.io/CSI-Part1.html#CSI-Part1"&gt;elsewhere&lt;/a&gt;, some of these apparent duplicates may actually be a mix of  business and residential directories; I'll explore that more later).&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;For fun, I'll produce one more chart, this time grouping the directories by the repository that contributed them to Hathitrust:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#set up the data to group by repository&lt;/span&gt;
-&lt;span class="n"&gt;df_year_rep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'repository'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unstack&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'repository'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_year_rep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_year_rep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reindex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_index&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As the bar plot shows, the collection contains a number of "duplicate" directories.  There are three copies of the Longworth directory for each of the years from 1834 to 1836, for example, multiple copies of most of the Doggett directories, and four copies of the 1876 Trow directory. (As I've discussed <a href="https://historiscope.github.io/CSI-Part1.html#CSI-Part1">elsewhere</a>, some of these apparent duplicates may actually be a mix of  business and residential directories; I'll explore that more later).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For fun, I'll produce one more chart, this time grouping the directories by the repository that contributed them to Hathitrust:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set up the data to group by repository</span>
+<span class="n">df_year_rep</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'pub_year'</span><span class="p">,</span> <span class="s1">'repository'</span><span class="p">])</span><span class="o">.</span><span class="n">pub_year</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">'repository'</span><span class="p">)</span>
+<span class="n">df_year_rep</span> <span class="o">=</span> <span class="n">df_year_rep</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">new_index</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
-&lt;span class="c1"&gt;# set type, bar width, and figure size for the second plot&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_year_rep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kind&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'bar'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bar_width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stacked&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;col_scheme2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set type, bar width, and figure size for the second plot</span>
+<span class="n">fig3</span> <span class="o">=</span> <span class="n">df_year_rep</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="n">fig_size</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">col_scheme2</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the plot title, size, and placement&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Number of Directories per Year grouped by Repository'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;title_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the plot title, size, and placement</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Number of Directories per Year grouped by Repository'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fs</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the x-axis ticks, minor ticks, and tick-labels&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;interp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;xtick_lab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xaxis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_minor_locator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minor_locator&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the x-axis ticks, minor ticks, and tick-labels</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x_lab</span><span class="p">,</span> <span class="n">df_year</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df_year</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_lab</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">xtick_lab_fs</span><span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">minor_locator</span><span class="p">)</span>
 
-&lt;span class="c1"&gt;# set the y-axis ticks and label&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'number of directories'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ylab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_lab&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;fig3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_yticklabels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_lab&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ytick_lab_fs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+<span class="c1"># set the y-axis ticks and label</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'number of directories'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">ylab_fs</span><span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_lab</span><span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_lab</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">ytick_lab_fs</span><span class="p">)</span>
 
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmYFNXZ9/HvzSK7oqAoaBg0qMDMMMCALLIjGEVF2UQW
 EXdUxCgGfVyQGBcgETTxMfoERkQFRMElJEHegKAYccABxG3EDCIggiyyynbeP6qqp6enu2fFHuD3
 ua66uqvqnDqn1p6569Qpc84hIiIiIiIiIiIiIlJWlEt0BUREREREREREREREwilwLSIiIiIiIiIi
@@ -2828,43 +2917,43 @@ k54mPU1mtomD6w8lefhxzq8kbaa1jEKTniY9Tdbp0dOkp0lPk54mPU16mvQ06WmyTo+eJj1Nepr0
 NOlp0tNkZht3jOskFyY57TjnfyrJ98+0llFo0tOkp8k6PXqa9DTpadLTpKdJT5OeJj1N1unR06Sn
 SU+TniY9TXqazGzjjnENAAAAAMDhtomHCgEAAAAA4BAzuAYAAAAAYCgG1wAAAAAADMXgGgAAAACA
 oRhcAwAAAAAwlP8PxnEsC5VfTjkAAAAASUVORK5CYII=
-" /&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;No single repository has contributed more than one copy of a given directory edition (Princeton's two contributions for 1842 are separate publications by Doggett and Longworth). An unsurprising result, but good to know.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;I have to make a few more tweaks to the data--identifying and excluding the business directories, for example. But after that, let the parsing begin!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>No single repository has contributed more than one copy of a given directory edition (Princeton's two contributions for 1842 are separate publications by Doggett and Longworth). An unsurprising result, but good to know.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I have to make a few more tweaks to the data--identifying and excluding the business directories, for example. But after that, let the parsing begin!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -2891,2719 +2980,46 @@ oRhcAwAAAAAwlP8PxnEsC5VfTjkAAAAASUVORK5CYII=
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;
-</content><category term="data science"></category><category term="python"></category><category term="projects"></category><category term="new york city"></category><category term="historical data"></category><category term="visualization"></category><category term="bar plots"></category><category term="directories"></category></entry><entry><title>Scraping, Cleaning, and Importing: an Overview</title><link href="https://historiscope.github.io/CSI-Part1.html" rel="alternate"></link><published>2016-06-19T14:40:00-04:00</published><updated>2016-06-19T14:40:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-19:/CSI-Part1.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Before I can start parsing the address entries into distinct fields, I first have to get the OCRed directories from their home on &lt;a href="https://hathitrust.org"&gt;Hathitrust&lt;/a&gt; and into my main data frame. I've already done that for most of the nineteenth-century New York City directories using a three-step process of scraping, cleaning, and importing the data. Before wrapping that up, I want to take a snapshot of this process for my blog. I'll begin with a general overview.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
-*
-* IPython notebook
-*
-*/
-/* CSS font colors for translated ANSI colors. */
-.ansibold {
-  font-weight: bold;
-}
-/* use dark versions for foreground, to improve visibility */
-.ansiblack {
-  color: black;
-}
-.ansired {
-  color: darkred;
-}
-.ansigreen {
-  color: darkgreen;
-}
-.ansiyellow {
-  color: #c4a000;
-}
-.ansiblue {
-  color: darkblue;
-}
-.ansipurple {
-  color: darkviolet;
-}
-.ansicyan {
-  color: steelblue;
-}
-.ansigray {
-  color: gray;
-}
-/* and light for background, for the same reason */
-.ansibgblack {
-  background-color: black;
-}
-.ansibgred {
-  background-color: red;
-}
-.ansibggreen {
-  background-color: green;
-}
-.ansibgyellow {
-  background-color: yellow;
-}
-.ansibgblue {
-  background-color: blue;
-}
-.ansibgpurple {
-  background-color: magenta;
-}
-.ansibgcyan {
-  background-color: cyan;
-}
-.ansibggray {
-  background-color: gray;
-}
-div.cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  border-radius: 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  width: 100%;
-  padding: 5px;
-  /* This acts as a spacer between cells, that is outside the border */
-  margin: 0px;
-  outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
-}
-div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
-  border-left-color: #E3F2FD;
-  border-left-width: 1px;
-  padding-left: 5px;
-  border-right-color: #E3F2FD;
-  border-right-width: 1px;
-  background: #E3F2FD;
-}
-@media print {
-  div.cell.jupyter-soft-selected {
-    border-color: transparent;
-  }
-}
-div.cell.selected {
-  border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
-}
-@media print {
-  div.cell.selected {
-    border-color: transparent;
-  }
-}
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
-.edit_mode div.cell.selected {
-  border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
-}
-@media print {
-  .edit_mode div.cell.selected {
-    border-color: transparent;
-  }
-}
-.prompt {
-  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
-  min-width: 14ex;
-  /* This padding is tuned to match the padding on the CodeMirror editor. */
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace;
-  text-align: right;
-  /* This has to match that of the the CodeMirror class line-height below */
-  line-height: 1.21429em;
-  /* Don't highlight prompt number selection */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  /* Use default cursor */
-  cursor: default;
-}
-@media (max-width: 540px) {
-  .prompt {
-    text-align: left;
-  }
-}
-div.inner_cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
-}
-/* input_area and input_prompt must match in top border and margin for alignment */
-div.input_area {
-  border: 1px solid #cfcfcf;
-  border-radius: 2px;
-  background: #f7f7f7;
-  line-height: 1.21429em;
-}
-/* This is needed so that empty prompt areas can collapse to zero height when there
-   is no content in the output_subarea and the prompt. The main purpose of this is
-   to make sure that empty JavaScript output_subareas have no height. */
-div.prompt:empty {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-div.unrecognized_cell {
-  padding: 5px 5px 5px 0px;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-div.unrecognized_cell .inner_cell {
-  border-radius: 2px;
-  padding: 5px;
-  font-weight: bold;
-  color: red;
-  border: 1px solid #cfcfcf;
-  background: #eaeaea;
-}
-div.unrecognized_cell .inner_cell a {
-  color: inherit;
-  text-decoration: none;
-}
-div.unrecognized_cell .inner_cell a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-@media (max-width: 540px) {
-  div.unrecognized_cell &gt; div.prompt {
-    display: none;
-  }
-}
-div.code_cell {
-  /* avoid page breaking on code cells when printing */
-}
-@media print {
-  div.code_cell {
-    page-break-inside: avoid;
-  }
-}
-/* any special styling for code cells that are currently running goes here */
-div.input {
-  page-break-inside: avoid;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.input {
-    /* Old browsers */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: stretch;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: stretch;
-    display: box;
-    box-orient: vertical;
-    box-align: stretch;
-    /* Modern browsers */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-/* input_area and input_prompt must match in top border and margin for alignment */
-div.input_prompt {
-  color: #303F9F;
-  border-top: 1px solid transparent;
-}
-div.input_area &gt; div.highlight {
-  margin: 0.4em;
-  border: none;
-  padding: 0px;
-  background-color: transparent;
-}
-div.input_area &gt; div.highlight &gt; pre {
-  margin: 0px;
-  border: none;
-  padding: 0px;
-  background-color: transparent;
-}
-/* The following gets added to the &lt;head&gt; if it is detected that the user has a
- * monospace font with inconsistent normal/bold/italic height.  See
- * notebookmain.js.  Such fonts will have keywords vertically offset with
- * respect to the rest of the text.  The user should select a better font.
- * See: https://github.com/ipython/ipython/issues/1503
- *
- * .CodeMirror span {
- *      vertical-align: bottom;
- * }
- */
-.CodeMirror {
-  line-height: 1.21429em;
-  /* Changed from 1em to our global default */
-  font-size: 14px;
-  height: auto;
-  /* Changed to auto to autogrow */
-  background: none;
-  /* Changed from white to allow our bg to show through */
-}
-.CodeMirror-scroll {
-  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
-  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
-  overflow-y: hidden;
-  overflow-x: auto;
-}
-.CodeMirror-lines {
-  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
-  /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
-}
-.CodeMirror-linenumber {
-  padding: 0 8px 0 4px;
-}
-.CodeMirror-gutters {
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-}
-.CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-}
-/*
-
-Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
-Adapted from GitHub theme
-
-*/
-.highlight-base {
-  color: #000;
-}
-.highlight-variable {
-  color: #000;
-}
-.highlight-variable-2 {
-  color: #1a1a1a;
-}
-.highlight-variable-3 {
-  color: #333333;
-}
-.highlight-string {
-  color: #BA2121;
-}
-.highlight-comment {
-  color: #408080;
-  font-style: italic;
-}
-.highlight-number {
-  color: #080;
-}
-.highlight-atom {
-  color: #88F;
-}
-.highlight-keyword {
-  color: #008000;
-  font-weight: bold;
-}
-.highlight-builtin {
-  color: #008000;
-}
-.highlight-error {
-  color: #f00;
-}
-.highlight-operator {
-  color: #AA22FF;
-  font-weight: bold;
-}
-.highlight-meta {
-  color: #AA22FF;
-}
-/* previously not defined, copying from default codemirror */
-.highlight-def {
-  color: #00f;
-}
-.highlight-string-2 {
-  color: #f50;
-}
-.highlight-qualifier {
-  color: #555;
-}
-.highlight-bracket {
-  color: #997;
-}
-.highlight-tag {
-  color: #170;
-}
-.highlight-attribute {
-  color: #00c;
-}
-.highlight-header {
-  color: blue;
-}
-.highlight-quote {
-  color: #090;
-}
-.highlight-link {
-  color: #00c;
-}
-/* apply the same style to codemirror */
-.cm-s-ipython span.cm-keyword {
-  color: #008000;
-  font-weight: bold;
-}
-.cm-s-ipython span.cm-atom {
-  color: #88F;
-}
-.cm-s-ipython span.cm-number {
-  color: #080;
-}
-.cm-s-ipython span.cm-def {
-  color: #00f;
-}
-.cm-s-ipython span.cm-variable {
-  color: #000;
-}
-.cm-s-ipython span.cm-operator {
-  color: #AA22FF;
-  font-weight: bold;
-}
-.cm-s-ipython span.cm-variable-2 {
-  color: #1a1a1a;
-}
-.cm-s-ipython span.cm-variable-3 {
-  color: #333333;
-}
-.cm-s-ipython span.cm-comment {
-  color: #408080;
-  font-style: italic;
-}
-.cm-s-ipython span.cm-string {
-  color: #BA2121;
-}
-.cm-s-ipython span.cm-string-2 {
-  color: #f50;
-}
-.cm-s-ipython span.cm-meta {
-  color: #AA22FF;
-}
-.cm-s-ipython span.cm-qualifier {
-  color: #555;
-}
-.cm-s-ipython span.cm-builtin {
-  color: #008000;
-}
-.cm-s-ipython span.cm-bracket {
-  color: #997;
-}
-.cm-s-ipython span.cm-tag {
-  color: #170;
-}
-.cm-s-ipython span.cm-attribute {
-  color: #00c;
-}
-.cm-s-ipython span.cm-header {
-  color: blue;
-}
-.cm-s-ipython span.cm-quote {
-  color: #090;
-}
-.cm-s-ipython span.cm-link {
-  color: #00c;
-}
-.cm-s-ipython span.cm-error {
-  color: #f00;
-}
-.cm-s-ipython span.cm-tab {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
-  background-position: right;
-  background-repeat: no-repeat;
-}
-div.output_wrapper {
-  /* this position must be relative to enable descendents to be absolute within it */
-  position: relative;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  z-index: 1;
-}
-/* class for the output area when it should be height-limited */
-div.output_scroll {
-  /* ideally, this would be max-height, but FF barfs all over that */
-  height: 24em;
-  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
-  width: 100%;
-  overflow: auto;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  display: block;
-}
-/* output div while it is collapsed */
-div.output_collapsed {
-  margin: 0px;
-  padding: 0px;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-div.out_prompt_overlay {
-  height: 100%;
-  padding: 0px 0.4em;
-  position: absolute;
-  border-radius: 2px;
-}
-div.out_prompt_overlay:hover {
-  /* use inner shadow to get border that is computed the same on WebKit/FF */
-  -webkit-box-shadow: inset 0 0 1px #000;
-  box-shadow: inset 0 0 1px #000;
-  background: rgba(240, 240, 240, 0.5);
-}
-div.output_prompt {
-  color: #D84315;
-}
-/* This class is the outer container of all output sections. */
-div.output_area {
-  padding: 0px;
-  page-break-inside: avoid;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-div.output_area .MathJax_Display {
-  text-align: left !important;
-}
-div.output_area 
-div.output_area 
-div.output_area img,
-div.output_area svg {
-  max-width: 100%;
-  height: auto;
-}
-div.output_area img.unconfined,
-div.output_area svg.unconfined {
-  max-width: none;
-}
-/* This is needed to protect the pre formating from global settings such
-   as that of bootstrap */
-.output {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.output_area {
-    /* Old browsers */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: stretch;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: stretch;
-    display: box;
-    box-orient: vertical;
-    box-align: stretch;
-    /* Modern browsers */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-div.output_area pre {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  color: black;
-  background-color: transparent;
-  border-radius: 0;
-}
-/* This class is for the output subarea inside the output_area and after
-   the prompt div. */
-div.output_subarea {
-  overflow-x: auto;
-  padding: 0.4em;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-  max-width: calc(100% - 14ex);
-}
-div.output_scroll div.output_subarea {
-  overflow-x: visible;
-}
-/* The rest of the output_* classes are for special styling of the different
-   output types */
-/* all text output has this class: */
-div.output_text {
-  text-align: left;
-  color: #000;
-  /* This has to match that of the the CodeMirror class line-height below */
-  line-height: 1.21429em;
-}
-/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
-div.output_stderr {
-  background: #fdd;
-  /* very light red background for stderr */
-}
-div.output_latex {
-  text-align: left;
-}
-/* Empty output_javascript divs should have no height */
-div.output_javascript:empty {
-  padding: 0;
-}
-.js-error {
-  color: darkred;
-}
-/* raw_input styles */
-div.raw_input_container {
-  line-height: 1.21429em;
-  padding-top: 5px;
-}
-pre.raw_input_prompt {
-  /* nothing needed here. */
-}
-input.raw_input {
-  font-family: monospace;
-  font-size: inherit;
-  color: inherit;
-  width: auto;
-  /* make sure input baseline aligns with prompt */
-  vertical-align: baseline;
-  /* padding + margin = 0.5em between prompt and cursor */
-  padding: 0em 0.25em;
-  margin: 0em 0.25em;
-}
-input.raw_input:focus {
-  box-shadow: none;
-}
-p.p-space {
-  margin-bottom: 10px;
-}
-div.output_unrecognized {
-  padding: 5px;
-  font-weight: bold;
-  color: red;
-}
-div.output_unrecognized a {
-  color: inherit;
-  text-decoration: none;
-}
-div.output_unrecognized a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-.rendered_html {
-  color: #000;
-  /* any extras will just be numbers: */
-}
-
-
-
-.rendered_html :link {
-  text-decoration: underline;
-}
-.rendered_html :visited {
-  text-decoration: underline;
-}
-
-
-
-
-
-
-.rendered_html h1:first-child {
-  margin-top: 0.538em;
-}
-.rendered_html h2:first-child {
-  margin-top: 0.636em;
-}
-.rendered_html h3:first-child {
-  margin-top: 0.777em;
-}
-.rendered_html h4:first-child {
-  margin-top: 1em;
-}
-.rendered_html h5:first-child {
-  margin-top: 1em;
-}
-.rendered_html h6:first-child {
-  margin-top: 1em;
-}
-
-
-
-
-
-
-
-
-.rendered_html * + ul {
-  margin-top: 1em;
-}
-.rendered_html * + ol {
-  margin-top: 1em;
-}
-
-
-.rendered_html pre,
-
-
-
-.rendered_html tr,
-.rendered_html th,
-
-.rendered_html td,
-
-
-.rendered_html * + table {
-  margin-top: 1em;
-}
-
-.rendered_html * + p {
-  margin-top: 1em;
-}
-
-.rendered_html * + img {
-  margin-top: 1em;
-}
-.rendered_html img,
-
-.rendered_html img.unconfined,
-
-div.text_cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.text_cell &gt; div.prompt {
-    display: none;
-  }
-}
-div.text_cell_render {
-  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
-  outline: none;
-  resize: none;
-  width: inherit;
-  border-style: none;
-  padding: 0.5em 0.5em 0.5em 0.4em;
-  color: #000;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-a.anchor-link:link {
-  text-decoration: none;
-  padding: 0px 20px;
-  visibility: hidden;
-}
-h1:hover .anchor-link,
-h2:hover .anchor-link,
-h3:hover .anchor-link,
-h4:hover .anchor-link,
-h5:hover .anchor-link,
-h6:hover .anchor-link {
-  visibility: visible;
-}
-.text_cell.rendered .input_area {
-  display: none;
-}
-.text_cell.rendered 
-.text_cell.unrendered .text_cell_render {
-  display: none;
-}
-.cm-header-1,
-.cm-header-2,
-.cm-header-3,
-.cm-header-4,
-.cm-header-5,
-.cm-header-6 {
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.cm-header-1 {
-  font-size: 185.7%;
-}
-.cm-header-2 {
-  font-size: 157.1%;
-}
-.cm-header-3 {
-  font-size: 128.6%;
-}
-.cm-header-4 {
-  font-size: 110%;
-}
-.cm-header-5 {
-  font-size: 100%;
-  font-style: italic;
-}
-.cm-header-6 {
-  font-size: 100%;
-  font-style: italic;
-}
-&lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Before I can start parsing the address entries into distinct fields, I first have to get the OCRed directories from their home on &lt;a href="https://hathitrust.org"&gt;Hathitrust&lt;/a&gt; and into my main data frame. I've already done that for most of the nineteenth-century New York City directories using a three-step process of scraping, cleaning, and importing the data. Before wrapping that up, I want to take a snapshot of this process for my blog. I'll begin with a general overview.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/catalog.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'total_pages'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'seq_end'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'processed'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;As I've discussed in an earlier blog entry, I used &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt; to create a 'catalog' data frame that contains information about each of the 111 New York City directories that I've found in HathiTrust. In addition to a large number of nineteenth-century directories, the catalog data frame contains quite a few entries from the late 1700s and the early 1900s. Since those aren't of interest to me at the moment, I'll exclude them from my working data frame. I'll also limit the working data frame to the seven columns relevant for understanding the process of scraping, cleaning, and importing the Hathitrust directories: the directory title, the publisher, the year it was published, the total number of pages in the digital version of that directory, and the number of pages that have already been scraped, cleaned, and imported:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt; &lt;span class="o"&gt;&gt;&lt;/span&gt; &lt;span class="mi"&gt;1799&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub_year&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="mi"&gt;1900&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-&lt;span class="n"&gt;select_cols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pub_year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'total_pages'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'scraped'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'cleaned'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;select_cols&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Next, I'll transform those column names into a more user-friendly version for display here:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;display_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Publisher'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Year'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Total Pages'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Scraped'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Cleaned'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Imported'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;display_names&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Scraping-Hathitrust"&gt;Scraping Hathitrust&lt;a class="anchor-link" href="#Scraping-Hathitrust"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time (about two seconds per page; it adds up, particularly as the directories get longer over time). Happily only the directories from the 1890s remain:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [14]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unscraped&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Scraped&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s2"&gt;Number of directories waiting to be scraped: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unscraped&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;unscraped&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Year'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;
+</script>
 
-Number of directories waiting to be scraped: 4
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[14]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;style&gt;
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://historiscope.github.io/tag/data-science.html">data science</a>
+      <a href="https://historiscope.github.io/tag/python.html">python</a>
+      <a href="https://historiscope.github.io/tag/projects.html">projects</a>
+      <a href="https://historiscope.github.io/tag/new-york-city.html">new york city</a>
+      <a href="https://historiscope.github.io/tag/historical-data.html">historical data</a>
+      <a href="https://historiscope.github.io/tag/visualization.html">visualization</a>
+      <a href="https://historiscope.github.io/tag/bar-plots.html">bar plots</a>
+      <a href="https://historiscope.github.io/tag/directories.html">directories</a>
+    </p>
+  </div>
 
-    .dataframe thead th {
-        text-align: left;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&lt;/style&gt;
-&lt;table border="1" class="dataframe"&gt;
-&lt;thead&gt;
-&lt;tr style="text-align: right;"&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Publisher&lt;/th&gt;
-&lt;th&gt;Year&lt;/th&gt;
-&lt;th&gt;Total Pages&lt;/th&gt;
-&lt;th&gt;Scraped&lt;/th&gt;
-&lt;th&gt;Cleaned&lt;/th&gt;
-&lt;th&gt;Imported&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;th&gt;88&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1890&lt;/td&gt;
-&lt;td&gt;408&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;69&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1894&lt;/td&gt;
-&lt;td&gt;1700&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;89&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1895&lt;/td&gt;
-&lt;td&gt;380&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;70&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1896&lt;/td&gt;
-&lt;td&gt;1750&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;It's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a &lt;a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt"&gt;population of approximately 1.5 million&lt;/a&gt;. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.&lt;/p&gt;
-&lt;p&gt;So what's going on here? The 1890 and 1895 publications above are &lt;em&gt;business&lt;/em&gt; directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Cleaning"&gt;Cleaning&lt;a class="anchor-link" href="#Cleaning"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;As each page is scraped, the page number is recorded in the "Scraped" column. If the process is interrupted, the next time the script runs, it will pick up where it left off. Once all pages in a directory have been scraped, that directory is ready for cleaning.&lt;/p&gt;
-&lt;p&gt;The uncleaned directory pages exist locally as text files, but are full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so I can easily remove the markup and other extraneous text using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;. Currently four recently-scraped directories are sitting in the cleaning queue:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;unclean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Scraped&lt;/span&gt; &lt;span class="o"&gt;&gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Cleaned&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s2"&gt;Number of scraped directories waiting to be cleaned: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unclean&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;unclean&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Year'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;
 
-Number of scraped directories waiting to be cleaned: 4
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[15]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;style&gt;
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
 
-    .dataframe thead th {
-        text-align: left;
-    }
+</article>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&lt;/style&gt;
-&lt;table border="1" class="dataframe"&gt;
-&lt;thead&gt;
-&lt;tr style="text-align: right;"&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Publisher&lt;/th&gt;
-&lt;th&gt;Year&lt;/th&gt;
-&lt;th&gt;Total Pages&lt;/th&gt;
-&lt;th&gt;Scraped&lt;/th&gt;
-&lt;th&gt;Cleaned&lt;/th&gt;
-&lt;th&gt;Imported&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;th&gt;79&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1880&lt;/td&gt;
-&lt;td&gt;1910&lt;/td&gt;
-&lt;td&gt;1910&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;80&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1886&lt;/td&gt;
-&lt;td&gt;2382&lt;/td&gt;
-&lt;td&gt;2382&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;105&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1888&lt;/td&gt;
-&lt;td&gt;254&lt;/td&gt;
-&lt;td&gt;254&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;106&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1889&lt;/td&gt;
-&lt;td&gt;310&lt;/td&gt;
-&lt;td&gt;310&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The cleaning process produces a collection of text files, each file containing OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. As each page is processed, the "Cleaned" column is updated with its page number.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Importing"&gt;Importing&lt;a class="anchor-link" href="#Importing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Once cleaned, the files will be imported line-by-line into an existing Pandas data frame. I have fourteen scraped and cleaned directories waiting to join the seventy-four directories that have already been imported into the project data frame:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [16]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ready_for_import&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Cleaned&lt;/span&gt; &lt;span class="o"&gt;&gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Imported&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s2"&gt;Number of cleaned directories waiting to be imported: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ready_for_import&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ready_for_import&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Year'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;
+    <footer>
+<p>&copy; Historiscope </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
 
-Number of cleaned directories waiting to be imported: 14
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[16]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;style&gt;
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
 
-    .dataframe thead th {
-        text-align: left;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&lt;/style&gt;
-&lt;table border="1" class="dataframe"&gt;
-&lt;thead&gt;
-&lt;tr style="text-align: right;"&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Publisher&lt;/th&gt;
-&lt;th&gt;Year&lt;/th&gt;
-&lt;th&gt;Total Pages&lt;/th&gt;
-&lt;th&gt;Scraped&lt;/th&gt;
-&lt;th&gt;Cleaned&lt;/th&gt;
-&lt;th&gt;Imported&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;th&gt;109&lt;/th&gt;
-&lt;td&gt;Jones&lt;/td&gt;
-&lt;td&gt;1805&lt;/td&gt;
-&lt;td&gt;450&lt;/td&gt;
-&lt;td&gt;450&lt;/td&gt;
-&lt;td&gt;450&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;110&lt;/th&gt;
-&lt;td&gt;Mercein&lt;/td&gt;
-&lt;td&gt;1820&lt;/td&gt;
-&lt;td&gt;452&lt;/td&gt;
-&lt;td&gt;452&lt;/td&gt;
-&lt;td&gt;452&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;30&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1870&lt;/td&gt;
-&lt;td&gt;1690&lt;/td&gt;
-&lt;td&gt;1690&lt;/td&gt;
-&lt;td&gt;1690&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;68&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1870&lt;/td&gt;
-&lt;td&gt;1680&lt;/td&gt;
-&lt;td&gt;1680&lt;/td&gt;
-&lt;td&gt;1680&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;31&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1871&lt;/td&gt;
-&lt;td&gt;1598&lt;/td&gt;
-&lt;td&gt;1598&lt;/td&gt;
-&lt;td&gt;1598&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;32&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1872&lt;/td&gt;
-&lt;td&gt;1712&lt;/td&gt;
-&lt;td&gt;1712&lt;/td&gt;
-&lt;td&gt;1712&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;33&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1873&lt;/td&gt;
-&lt;td&gt;1724&lt;/td&gt;
-&lt;td&gt;1724&lt;/td&gt;
-&lt;td&gt;1724&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;101&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1874&lt;/td&gt;
-&lt;td&gt;132&lt;/td&gt;
-&lt;td&gt;132&lt;/td&gt;
-&lt;td&gt;132&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;34&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1876&lt;/td&gt;
-&lt;td&gt;1702&lt;/td&gt;
-&lt;td&gt;1702&lt;/td&gt;
-&lt;td&gt;1702&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;35&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1876&lt;/td&gt;
-&lt;td&gt;1736&lt;/td&gt;
-&lt;td&gt;1736&lt;/td&gt;
-&lt;td&gt;1736&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;78&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1876&lt;/td&gt;
-&lt;td&gt;1722&lt;/td&gt;
-&lt;td&gt;1722&lt;/td&gt;
-&lt;td&gt;1722&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;102&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1876&lt;/td&gt;
-&lt;td&gt;130&lt;/td&gt;
-&lt;td&gt;130&lt;/td&gt;
-&lt;td&gt;130&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;103&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1878&lt;/td&gt;
-&lt;td&gt;130&lt;/td&gt;
-&lt;td&gt;130&lt;/td&gt;
-&lt;td&gt;130&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;104&lt;/th&gt;
-&lt;td&gt;Trow&lt;/td&gt;
-&lt;td&gt;1879&lt;/td&gt;
-&lt;td&gt;156&lt;/td&gt;
-&lt;td&gt;156&lt;/td&gt;
-&lt;td&gt;156&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Currently the main data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, I can move on to the next phase of this project: parsing each address line into distinct columns ('last name', 'first name', 'occupation', etc.).&lt;/p&gt;
-&lt;p&gt;But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from the main data frame shows, many of the rows are in fact addresses:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [17]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;address_sample&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/address_sample.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;address_sample&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iterrows&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;": "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;0: Clark Barney, shoemaker, 86 Mulberry
-1: Clark Daniel, laborer, Eighth c. Av. C
-2: Clark Dennis, laborer, 64 Gouverneur
-3: Clark Ebenezer, strawedgings, 53 Factory
-4: Clark Edward, paper carrier, 168 Clinton
-5: Clark Edward, laborer, r. 79 W. 18th
-6: Clark Edward, (col'd) porter, 13 York
-7: Clark George, machinist, r. 37 Broome
-8: Clark George, meat.curer, 276 Mulberry
-9: Clark Hezekiah, carman, E. 25th n. Av. 1
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;But many directory pages contain no addresses at all. These include the introduction and table of contents, and supplemental pages, such as weather tables, informational essays, and advertisements. The rows produced from these pages will need to be excluded from the analysis:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;suppl_sample&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/suppl_sample.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;suppl_sample&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iterrows&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;": "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;'...'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;0: This great engraving, the fruit of four years' labor and got up at an expense of...
-1: and it staids, beyond a cavil, among the proudest monuments of the Fine Arts....
-2: “Washington City, January 20, 1848....
-3: 2 &lt;n ºf le3 e3, go 4- ºr s&amp;amp;s 4\, ºr a... 4: zºs - after may 1st, 1848, at 205 broadway. §... 5: º, mr. a. would reſer to the distinguished reputation of the hoºse of - %. ,... 6: *5 neur orders for any prints, either old or of late publication, will be *... 7: 9.4% “agréez, messieurs messinceres complimens et l&amp;#x27;assurance forwarded to siirº... 8: agents-rushton, clark &amp;amp; co., 110 broadway and 10 astor house; 83 broadway; 2 par... 9: ances, and an eye to economy, to... &amp;lt; pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Fortunately, there are a number of ways to use Python to isolate address entries from other types of text. I'll be talking about those in a future blog entry.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['$','$'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        " linebreaks: { automatic: true, width: '95% container' }, " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-        "    } " +
-        "}); ";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;
-</content><category term="data science"></category><category term="python"></category><category term="projects"></category><category term="new york city"></category><category term="historical data"></category><category term="beautifulsoup"></category><category term="scraping"></category><category term="cleaning"></category><category term="importing"></category></entry><entry><title>Introducing the NYC Directory Project</title><link href="https://historiscope.github.io/firstpost.html" rel="alternate"></link><published>2016-06-12T20:00:00-04:00</published><updated>2016-06-12T20:00:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-12:/firstpost.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The NYC Directory Project uses Python to extract data from nineteenth-century address directories that have been scanned and made publicly available on &lt;a href="https://www.hathitrust.org"&gt;Hathitrust.org&lt;/a&gt;. The final result will be a demographic and geocoded dataset that can be searched and analyzed to learn more about the residents of New York City in the 1800s.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
-*
-* IPython notebook
-*
-*/
-/* CSS font colors for translated ANSI colors. */
-.ansibold {
-  font-weight: bold;
-}
-/* use dark versions for foreground, to improve visibility */
-.ansiblack {
-  color: black;
-}
-.ansired {
-  color: darkred;
-}
-.ansigreen {
-  color: darkgreen;
-}
-.ansiyellow {
-  color: #c4a000;
-}
-.ansiblue {
-  color: darkblue;
-}
-.ansipurple {
-  color: darkviolet;
-}
-.ansicyan {
-  color: steelblue;
-}
-.ansigray {
-  color: gray;
-}
-/* and light for background, for the same reason */
-.ansibgblack {
-  background-color: black;
-}
-.ansibgred {
-  background-color: red;
-}
-.ansibggreen {
-  background-color: green;
-}
-.ansibgyellow {
-  background-color: yellow;
-}
-.ansibgblue {
-  background-color: blue;
-}
-.ansibgpurple {
-  background-color: magenta;
-}
-.ansibgcyan {
-  background-color: cyan;
-}
-.ansibggray {
-  background-color: gray;
-}
-div.cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  border-radius: 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  width: 100%;
-  padding: 5px;
-  /* This acts as a spacer between cells, that is outside the border */
-  margin: 0px;
-  outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
-}
-div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
-  border-left-color: #E3F2FD;
-  border-left-width: 1px;
-  padding-left: 5px;
-  border-right-color: #E3F2FD;
-  border-right-width: 1px;
-  background: #E3F2FD;
-}
-@media print {
-  div.cell.jupyter-soft-selected {
-    border-color: transparent;
-  }
-}
-div.cell.selected {
-  border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
-}
-@media print {
-  div.cell.selected {
-    border-color: transparent;
-  }
-}
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
-.edit_mode div.cell.selected {
-  border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
-}
-@media print {
-  .edit_mode div.cell.selected {
-    border-color: transparent;
-  }
-}
-.prompt {
-  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
-  min-width: 14ex;
-  /* This padding is tuned to match the padding on the CodeMirror editor. */
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace;
-  text-align: right;
-  /* This has to match that of the the CodeMirror class line-height below */
-  line-height: 1.21429em;
-  /* Don't highlight prompt number selection */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  /* Use default cursor */
-  cursor: default;
-}
-@media (max-width: 540px) {
-  .prompt {
-    text-align: left;
-  }
-}
-div.inner_cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
-}
-/* input_area and input_prompt must match in top border and margin for alignment */
-div.input_area {
-  border: 1px solid #cfcfcf;
-  border-radius: 2px;
-  background: #f7f7f7;
-  line-height: 1.21429em;
-}
-/* This is needed so that empty prompt areas can collapse to zero height when there
-   is no content in the output_subarea and the prompt. The main purpose of this is
-   to make sure that empty JavaScript output_subareas have no height. */
-div.prompt:empty {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-div.unrecognized_cell {
-  padding: 5px 5px 5px 0px;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-div.unrecognized_cell .inner_cell {
-  border-radius: 2px;
-  padding: 5px;
-  font-weight: bold;
-  color: red;
-  border: 1px solid #cfcfcf;
-  background: #eaeaea;
-}
-div.unrecognized_cell .inner_cell a {
-  color: inherit;
-  text-decoration: none;
-}
-div.unrecognized_cell .inner_cell a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-@media (max-width: 540px) {
-  div.unrecognized_cell &gt; div.prompt {
-    display: none;
-  }
-}
-div.code_cell {
-  /* avoid page breaking on code cells when printing */
-}
-@media print {
-  div.code_cell {
-    page-break-inside: avoid;
-  }
-}
-/* any special styling for code cells that are currently running goes here */
-div.input {
-  page-break-inside: avoid;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.input {
-    /* Old browsers */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: stretch;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: stretch;
-    display: box;
-    box-orient: vertical;
-    box-align: stretch;
-    /* Modern browsers */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-/* input_area and input_prompt must match in top border and margin for alignment */
-div.input_prompt {
-  color: #303F9F;
-  border-top: 1px solid transparent;
-}
-div.input_area &gt; div.highlight {
-  margin: 0.4em;
-  border: none;
-  padding: 0px;
-  background-color: transparent;
-}
-div.input_area &gt; div.highlight &gt; pre {
-  margin: 0px;
-  border: none;
-  padding: 0px;
-  background-color: transparent;
-}
-/* The following gets added to the &lt;head&gt; if it is detected that the user has a
- * monospace font with inconsistent normal/bold/italic height.  See
- * notebookmain.js.  Such fonts will have keywords vertically offset with
- * respect to the rest of the text.  The user should select a better font.
- * See: https://github.com/ipython/ipython/issues/1503
- *
- * .CodeMirror span {
- *      vertical-align: bottom;
- * }
- */
-.CodeMirror {
-  line-height: 1.21429em;
-  /* Changed from 1em to our global default */
-  font-size: 14px;
-  height: auto;
-  /* Changed to auto to autogrow */
-  background: none;
-  /* Changed from white to allow our bg to show through */
-}
-.CodeMirror-scroll {
-  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
-  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
-  overflow-y: hidden;
-  overflow-x: auto;
-}
-.CodeMirror-lines {
-  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
-  /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
-}
-.CodeMirror-linenumber {
-  padding: 0 8px 0 4px;
-}
-.CodeMirror-gutters {
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-}
-.CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-}
-/*
-
-Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
-Adapted from GitHub theme
-
-*/
-.highlight-base {
-  color: #000;
-}
-.highlight-variable {
-  color: #000;
-}
-.highlight-variable-2 {
-  color: #1a1a1a;
-}
-.highlight-variable-3 {
-  color: #333333;
-}
-.highlight-string {
-  color: #BA2121;
-}
-.highlight-comment {
-  color: #408080;
-  font-style: italic;
-}
-.highlight-number {
-  color: #080;
-}
-.highlight-atom {
-  color: #88F;
-}
-.highlight-keyword {
-  color: #008000;
-  font-weight: bold;
-}
-.highlight-builtin {
-  color: #008000;
-}
-.highlight-error {
-  color: #f00;
-}
-.highlight-operator {
-  color: #AA22FF;
-  font-weight: bold;
-}
-.highlight-meta {
-  color: #AA22FF;
-}
-/* previously not defined, copying from default codemirror */
-.highlight-def {
-  color: #00f;
-}
-.highlight-string-2 {
-  color: #f50;
-}
-.highlight-qualifier {
-  color: #555;
-}
-.highlight-bracket {
-  color: #997;
-}
-.highlight-tag {
-  color: #170;
-}
-.highlight-attribute {
-  color: #00c;
-}
-.highlight-header {
-  color: blue;
-}
-.highlight-quote {
-  color: #090;
-}
-.highlight-link {
-  color: #00c;
-}
-/* apply the same style to codemirror */
-.cm-s-ipython span.cm-keyword {
-  color: #008000;
-  font-weight: bold;
-}
-.cm-s-ipython span.cm-atom {
-  color: #88F;
-}
-.cm-s-ipython span.cm-number {
-  color: #080;
-}
-.cm-s-ipython span.cm-def {
-  color: #00f;
-}
-.cm-s-ipython span.cm-variable {
-  color: #000;
-}
-.cm-s-ipython span.cm-operator {
-  color: #AA22FF;
-  font-weight: bold;
-}
-.cm-s-ipython span.cm-variable-2 {
-  color: #1a1a1a;
-}
-.cm-s-ipython span.cm-variable-3 {
-  color: #333333;
-}
-.cm-s-ipython span.cm-comment {
-  color: #408080;
-  font-style: italic;
-}
-.cm-s-ipython span.cm-string {
-  color: #BA2121;
-}
-.cm-s-ipython span.cm-string-2 {
-  color: #f50;
-}
-.cm-s-ipython span.cm-meta {
-  color: #AA22FF;
-}
-.cm-s-ipython span.cm-qualifier {
-  color: #555;
-}
-.cm-s-ipython span.cm-builtin {
-  color: #008000;
-}
-.cm-s-ipython span.cm-bracket {
-  color: #997;
-}
-.cm-s-ipython span.cm-tag {
-  color: #170;
-}
-.cm-s-ipython span.cm-attribute {
-  color: #00c;
-}
-.cm-s-ipython span.cm-header {
-  color: blue;
-}
-.cm-s-ipython span.cm-quote {
-  color: #090;
-}
-.cm-s-ipython span.cm-link {
-  color: #00c;
-}
-.cm-s-ipython span.cm-error {
-  color: #f00;
-}
-.cm-s-ipython span.cm-tab {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
-  background-position: right;
-  background-repeat: no-repeat;
-}
-div.output_wrapper {
-  /* this position must be relative to enable descendents to be absolute within it */
-  position: relative;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  z-index: 1;
-}
-/* class for the output area when it should be height-limited */
-div.output_scroll {
-  /* ideally, this would be max-height, but FF barfs all over that */
-  height: 24em;
-  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
-  width: 100%;
-  overflow: auto;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  display: block;
-}
-/* output div while it is collapsed */
-div.output_collapsed {
-  margin: 0px;
-  padding: 0px;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-div.out_prompt_overlay {
-  height: 100%;
-  padding: 0px 0.4em;
-  position: absolute;
-  border-radius: 2px;
-}
-div.out_prompt_overlay:hover {
-  /* use inner shadow to get border that is computed the same on WebKit/FF */
-  -webkit-box-shadow: inset 0 0 1px #000;
-  box-shadow: inset 0 0 1px #000;
-  background: rgba(240, 240, 240, 0.5);
-}
-div.output_prompt {
-  color: #D84315;
-}
-/* This class is the outer container of all output sections. */
-div.output_area {
-  padding: 0px;
-  page-break-inside: avoid;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-div.output_area .MathJax_Display {
-  text-align: left !important;
-}
-div.output_area 
-div.output_area 
-div.output_area img,
-div.output_area svg {
-  max-width: 100%;
-  height: auto;
-}
-div.output_area img.unconfined,
-div.output_area svg.unconfined {
-  max-width: none;
-}
-/* This is needed to protect the pre formating from global settings such
-   as that of bootstrap */
-.output {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.output_area {
-    /* Old browsers */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: stretch;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: stretch;
-    display: box;
-    box-orient: vertical;
-    box-align: stretch;
-    /* Modern browsers */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-div.output_area pre {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  color: black;
-  background-color: transparent;
-  border-radius: 0;
-}
-/* This class is for the output subarea inside the output_area and after
-   the prompt div. */
-div.output_subarea {
-  overflow-x: auto;
-  padding: 0.4em;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-  max-width: calc(100% - 14ex);
-}
-div.output_scroll div.output_subarea {
-  overflow-x: visible;
-}
-/* The rest of the output_* classes are for special styling of the different
-   output types */
-/* all text output has this class: */
-div.output_text {
-  text-align: left;
-  color: #000;
-  /* This has to match that of the the CodeMirror class line-height below */
-  line-height: 1.21429em;
-}
-/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
-div.output_stderr {
-  background: #fdd;
-  /* very light red background for stderr */
-}
-div.output_latex {
-  text-align: left;
-}
-/* Empty output_javascript divs should have no height */
-div.output_javascript:empty {
-  padding: 0;
-}
-.js-error {
-  color: darkred;
-}
-/* raw_input styles */
-div.raw_input_container {
-  line-height: 1.21429em;
-  padding-top: 5px;
-}
-pre.raw_input_prompt {
-  /* nothing needed here. */
-}
-input.raw_input {
-  font-family: monospace;
-  font-size: inherit;
-  color: inherit;
-  width: auto;
-  /* make sure input baseline aligns with prompt */
-  vertical-align: baseline;
-  /* padding + margin = 0.5em between prompt and cursor */
-  padding: 0em 0.25em;
-  margin: 0em 0.25em;
-}
-input.raw_input:focus {
-  box-shadow: none;
-}
-p.p-space {
-  margin-bottom: 10px;
-}
-div.output_unrecognized {
-  padding: 5px;
-  font-weight: bold;
-  color: red;
-}
-div.output_unrecognized a {
-  color: inherit;
-  text-decoration: none;
-}
-div.output_unrecognized a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-.rendered_html {
-  color: #000;
-  /* any extras will just be numbers: */
-}
-
-
-
-.rendered_html :link {
-  text-decoration: underline;
-}
-.rendered_html :visited {
-  text-decoration: underline;
-}
-
-
-
-
-
-
-.rendered_html h1:first-child {
-  margin-top: 0.538em;
-}
-.rendered_html h2:first-child {
-  margin-top: 0.636em;
-}
-.rendered_html h3:first-child {
-  margin-top: 0.777em;
-}
-.rendered_html h4:first-child {
-  margin-top: 1em;
-}
-.rendered_html h5:first-child {
-  margin-top: 1em;
-}
-.rendered_html h6:first-child {
-  margin-top: 1em;
-}
-
-
-
-
-
-
-
-
-.rendered_html * + ul {
-  margin-top: 1em;
-}
-.rendered_html * + ol {
-  margin-top: 1em;
-}
-
-
-.rendered_html pre,
-
-
-
-.rendered_html tr,
-.rendered_html th,
-
-.rendered_html td,
-
-
-.rendered_html * + table {
-  margin-top: 1em;
-}
-
-.rendered_html * + p {
-  margin-top: 1em;
-}
-
-.rendered_html * + img {
-  margin-top: 1em;
-}
-.rendered_html img,
-
-.rendered_html img.unconfined,
-
-div.text_cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.text_cell &gt; div.prompt {
-    display: none;
-  }
-}
-div.text_cell_render {
-  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
-  outline: none;
-  resize: none;
-  width: inherit;
-  border-style: none;
-  padding: 0.5em 0.5em 0.5em 0.4em;
-  color: #000;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-a.anchor-link:link {
-  text-decoration: none;
-  padding: 0px 20px;
-  visibility: hidden;
-}
-h1:hover .anchor-link,
-h2:hover .anchor-link,
-h3:hover .anchor-link,
-h4:hover .anchor-link,
-h5:hover .anchor-link,
-h6:hover .anchor-link {
-  visibility: visible;
-}
-.text_cell.rendered .input_area {
-  display: none;
-}
-.text_cell.rendered 
-.text_cell.unrendered .text_cell_render {
-  display: none;
-}
-.cm-header-1,
-.cm-header-2,
-.cm-header-3,
-.cm-header-4,
-.cm-header-5,
-.cm-header-6 {
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.cm-header-1 {
-  font-size: 185.7%;
-}
-.cm-header-2 {
-  font-size: 157.1%;
-}
-.cm-header-3 {
-  font-size: 128.6%;
-}
-.cm-header-4 {
-  font-size: 110%;
-}
-.cm-header-5 {
-  font-size: 100%;
-  font-style: italic;
-}
-.cm-header-6 {
-  font-size: 100%;
-  font-style: italic;
-}
-&lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
 
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The NYC Directory Project uses Python to extract data from nineteenth-century address directories that have been scanned and made publicly available on &lt;a href="https://www.hathitrust.org"&gt;Hathitrust.org&lt;/a&gt;. The final result will be a demographic and geocoded dataset that can be searched and analyzed to learn more about the residents of New York City in the 1800s.&lt;/p&gt;
-&lt;p&gt;Browsing through directories on &lt;a href="https://catalog.hathitrust.org/Search/Home?type%5B%5D=subject&amp;amp;lookfor%5B%5D=%22%20New%20York%20%28N.Y.%29%20Directories.%22&amp;amp;filter%5B%5D=topicStr%3ANew%20York%20%28N.Y.%29%20Directories&amp;amp;ft="&gt;Hathitrust&lt;/a&gt; and at the &lt;a href="https://www.nypl.org/blog/2016/09/21/new-york-city-directories-free-online"&gt;New York Public Library&lt;/a&gt; and other sites, I was intrigued at the sheer quantity of data embedded there and struck by what could be learned and accomplished by using code to clean and structure it. Historical sources such as the &lt;a href="https://archive.org/details/us_census"&gt;United States Federal Census&lt;/a&gt; and the &lt;a href="https://familysearch.org/search/collection/1491284"&gt;New York State Census&lt;/a&gt; provide a useful picture of past New York City residents, but census data exists, at best, only at five-year intervals and prior to 1850 the census is &lt;a href="https://www.thoughtco.com/digging-details-from-us-census-records-1421771"&gt;notably vague&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Address directories have long been an alternative source of information for historians and genealogists. The scanning of address directories by Google, Archive.org, and others made them widely available so that getting access to them no longer required a physical trip to the repository that owned them. Even in digital format, however, they remained stubbornly analog, used primarily for locating individuals whose names were already known in an alphabetical index--just as originally intended. The production of text versions using OCR (optical character recognition) freed the directories from the tyranny of alphabetical order and made it possible to search the text by name, street, or occupation, for example.&lt;/p&gt;
-&lt;p&gt;Unfortunately, even with OCR, the utility of the address directories remains limited. You can search them, but you can't analyze them, and the inconsistent quality of OCR makes searching the directories a game of “hit or miss.” As the images below show, the quality of OCR output can be remarkably accurate:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div align="center"&gt;
-&lt;figure&gt;
-&lt;img alt="scanned directory page" src="images/NYC-1846.png" /&gt;
-&lt;/figure&gt;
-&lt;figure&gt;
-&lt;img alt="OCR output" src="images/NYC-1846-ocr.png" /&gt;
-&lt;figcaption&gt;
-&lt;sub&gt;&lt;em&gt;Doggett's New York City Directory for 1846/1847&lt;/em&gt; at 
-            &lt;a href="https://babel.hathitrust.org/cgi/pt?num=363&amp;amp;u=1&amp;amp;seq=5&amp;amp;view=image&amp;amp;size=100&amp;amp;id=nnc2.ark%3A%2F13960%2Ft2c84q71b"&gt;
-               Hathitrust&lt;/a&gt;
-&lt;/sub&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;...or problematically poor:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div align="center"&gt;
-&lt;figure&gt;
-&lt;img alt="scanned directory page" src="images/NYC-1844.png" /&gt;
-&lt;/figure&gt;
-&lt;figure&gt;
-&lt;img alt="OCR text" src="images/NYC-1844-ocr.png" /&gt;
-&lt;figcaption&gt;
-&lt;sub&gt;&lt;em&gt;The New York City Directory, 1844/45&lt;/em&gt;, at 
-                &lt;a href="https://babel.hathitrust.org/cgi/pt?id=osu.32435056191521;view=1up;seq=217;size=150"&gt;Hathitrust&lt;/a&gt;
-&lt;/sub&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The NYC Directory Project is an effort to enhance the value of historical address directories by using &lt;a href="https://www.python.org/about/gettingstarted/"&gt;Python&lt;/a&gt; to access, clean, and structure the text, and by using statistical inference to identify different address formats and to fix OCR errors where possible. This process will make searching a single directory considerably more effective, but more importantly it will allow for the systematic analysis of data within and across address directories, providing an annual snapshot of New York City as it was (or at least, as it appeared in these directories; as I will discuss in a future post, the directories were far from a comprehensive accounting of the city’s population). And because address directories, happily, used fairly consistent formats, this project is portable: the same code--with the inevitable tweaking--can be used to unlock the past of other cities as well.&lt;/p&gt;
-&lt;p&gt;While this project contributes to a larger effort by Historiscope to extract and disseminate demographically meaningful data from publicly available digitized documents, it's also inspired by some personal goals. I began this project in part as a means to learn and practice writing Python code, a tool I just recently added to my wheelhouse. I &lt;a href="mailto:info@historiscope.org"&gt;welcome and encourage&lt;/a&gt; suggestions and corrections.&lt;/p&gt;
-&lt;p&gt;Also, somewhere in those directories are the friends and relatives of my elusive ancestor William Peck Sims, a New York City wheelwright born around 1810 and a lifelong resident of old New York. Using the Python-enhanced version of these directories, I hope to get to know him and his world a little better.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div align="center"&gt;
-&lt;figure&gt;
-&lt;img alt="William Peck Sims in Longworth's 1829 New York City Directory" src="images/NYC-1829.png" /&gt;
-&lt;figcaption&gt;
-&lt;sub&gt;&lt;em&gt;Longworth's American Almanac, New York Register, and City Directory, 1829&lt;/em&gt;, at 
-            &lt;a href="https://babel.hathitrust.org/cgi/pt?id=chi.102184102;view=1up;seq=510"&gt;Hathitrust&lt;/a&gt;
-&lt;/sub&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['$','$'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        " linebreaks: { automatic: true, width: '95% container' }, " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-        "    } " +
-        "}); ";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Historiscope News ",
+  "url" : "https://historiscope.github.io",
+  "image": "",
+  "description": "Adventures in Data-Wrangling"
 }
-&lt;/script&gt;
-</content><category term="data science"></category><category term="python"></category><category term="projects"></category><category term="new york city"></category><category term="historical data"></category><category term="demography"></category><category term="genealogy"></category></entry></feed>
+</script>
+</body>
+</html>
