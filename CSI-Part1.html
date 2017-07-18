@@ -1082,11 +1082,12 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_colwidth'</span><span class="p">,</span><span class="mi">75</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1103,7 +1104,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/catalog.p'</span><span class="p">)</span>
@@ -1123,12 +1124,12 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span> <span class="o">></span> <span class="mi">1799</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pub_year</span> <span class="o"><</span> <span class="mi">1900</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">df_cat</span><span class="p">[(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">pub_year</span> <span class="o">></span> <span class="mi">1799</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">pub_year</span> <span class="o"><</span> <span class="mi">1900</span><span class="p">)]</span>
 <span class="n">select_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'publisher'</span><span class="p">,</span> <span class="s1">'pub_year'</span><span class="p">,</span> <span class="s1">'total_pages'</span><span class="p">,</span> <span class="s1">'scraped'</span><span class="p">,</span> <span class="s1">'cleaned'</span><span class="p">,</span> <span class="s1">'imported'</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">select_cols</span><span class="p">]</span>
+<span class="n">df_cat</span> <span class="o">=</span> <span class="n">df_cat</span><span class="p">[</span><span class="n">select_cols</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1145,11 +1146,11 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Publisher'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">,</span> <span class="s1">'Total Pages'</span><span class="p">,</span> <span class="s1">'Scraped'</span><span class="p">,</span> <span class="s1">'Cleaned'</span><span class="p">,</span> <span class="s1">'Imported'</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">display_names</span>
+<span class="n">df_cat</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">display_names</span>
 </pre></div>
 </div>
 </div>
@@ -1166,13 +1167,95 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">unscraped</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">unscraped</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Number of directories waiting to be scraped: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">unscraped</span><span class="p">)))</span>
-<span class="n">df</span><span class="p">[</span><span class="n">unscraped</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
+<span class="n">df_cat</span><span class="p">[</span><span class="n">unscraped</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+
+Number of directories waiting to be scraped: 4
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Publisher</th>
+<th>Year</th>
+<th>Total Pages</th>
+<th>Scraped</th>
+<th>Cleaned</th>
+<th>Imported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>88</th>
+<td>Trow</td>
+<td>1890</td>
+<td>408</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>69</th>
+<td>Trow</td>
+<td>1894</td>
+<td>1700</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>89</th>
+<td>Trow</td>
+<td>1895</td>
+<td>380</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>70</th>
+<td>Trow</td>
+<td>1896</td>
+<td>1750</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1199,12 +1282,12 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">unclean</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">unclean</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Number of scraped directories waiting to be cleaned: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">unclean</span><span class="p">)))</span>
-<span class="n">df</span><span class="p">[</span><span class="n">unclean</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
+<span class="n">df_cat</span><span class="p">[</span><span class="n">unclean</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1219,7 +1302,7 @@ Number of scraped directories waiting to be cleaned: 4
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1312,12 +1395,12 @@ Number of scraped directories waiting to be cleaned: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ready_for_import</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Imported</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ready_for_import</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Imported</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Number of cleaned directories waiting to be imported: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">ready_for_import</span><span class="p">)))</span>
-<span class="n">df</span><span class="p">[</span><span class="n">ready_for_import</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
+<span class="n">df_cat</span><span class="p">[</span><span class="n">ready_for_import</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1332,7 +1415,7 @@ Number of cleaned directories waiting to be imported: 14
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1501,20 +1584,16 @@ Number of cleaned directories waiting to be imported: 14
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Currently the main data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, the data frame will have about ten million rows and I'll move on to the next phase of this project: identifying which rows represent address entries and parsing those entries into distinct columns ('last name', 'first name', 'occupation', etc.).</p>
-<p>But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from the main data frame shows, many of the rows are in fact addresses:</p>
+<p>But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from a subset of the main data frame shows, many of the rows are in fact addresses:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">address_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/address_sample.p'</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">address_sample</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span> <span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">entry</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">address_sample</span><span class="o">.</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">address_sample</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1523,17 +1602,23 @@ Number of cleaned directories waiting to be imported: 14
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0: Clark Barney, shoemaker, 86 Mulberry
-1: Clark Daniel, laborer, Eighth c. Av. C
-2: Clark Dennis, laborer, 64 Gouverneur
-3: Clark Ebenezer, strawedgings, 53 Factory
-4: Clark Edward, paper carrier, 168 Clinton
-5: Clark Edward, laborer, r. 79 W. 18th
-6: Clark Edward, (col'd) porter, 13 York
-7: Clark George, machinist, r. 37 Broome
-8: Clark George, meat.curer, 276 Mulberry
-9: Clark Hezekiah, carman, E. 25th n. Av. 1
+<pre>98500        Clark Barney, shoemaker, 86 Mulberry
+98521      Clark Daniel, laborer, Eighth c. Av. C
+98528        Clark Dennis, laborer, 64 Gouverneur
+98529    Clark Ebenezer, strawedgings, 53 Factory
+98534    Clark Edward, paper carrier, 168 Clinton
+98535        Clark Edward, laborer, r. 79 W. 18th
+98538       Clark Edward, (col'd) porter, 13 York
+98567       Clark George, machinist, r. 37 Broome
+98568      Clark George, meat.curer, 276 Mulberry
+98586    Clark Hezekiah, carman, E. 25th n. Av. 1
+Name: entry, dtype: object
 </pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>[None]</pre>
 </div>
 </div>
 </div>
@@ -1550,14 +1635,11 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">suppl_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/suppl_sample.p'</span><span class="p">)</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">suppl_sample</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span> <span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">entry</span><span class="p">[:</span><span class="mi">80</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'...'</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">suppl_sample</span><span class="o">.</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">suppl_sample</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1566,10 +1648,15 @@ Number of cleaned directories waiting to be imported: 14
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0: This great engraving, the fruit of four years' labor and got up at an expense of...
-1: and it staids, beyond a cavil, among the proudest monuments of the Fine Arts....
-2: “Washington City, January 20, 1848....
-3: 2 <n ºf le3 e3, go 4- ºr s&amp;s 4\, ºr a... 4: zºs - after may 1st, 1848, at 205 broadway. §... 5: º, mr. a. would reſer to the distinguished reputation of the hoºse of - %. ,... 6: *5 neur orders for any prints, either old or of late publication, will be *... 7: 9.4% “agréez, messieurs messinceres complimens et l&#x27;assurance forwarded to siirº... 8: agents-rushton, clark &amp; co., 110 broadway and 10 astor house; 83 broadway; 2 par... 9: ances, and an eye to economy, to... &lt; pre>
+<pre>86733    This great engraving, the fruit of four years' labor and got up at an e...
+86736    and it staids, beyond a cavil, among the proudest monuments of the Fine...
+86744                                           “Washington City, January 20, 1848.
+86752                                         2 <n ºf le3 e3, go 4- ºr s&amp;s 4\, ºr a 86763 zºs - after may 1st, 1848, at 205 broadway. § 86769 º, mr. a. would reſer to the distinguished reputation of the hoºse of -... 86779 *5 neur orders for any prints, either old or of late publication, will ... 86780 9.4% “agréez, messieurs messinceres complimens et l&#x27;assurance forwarded... 86797 agents-rushton, clark &amp; co., 110 broadway and 10 astor house; 83 broadw... 86840 ances, and an eye to economy, to name: entry, dtype: object &lt; pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>[None]</pre>
 </div>
 </div>
 </div>
