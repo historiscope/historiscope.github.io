@@ -1161,7 +1161,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Scraping-Hathitrust">Scraping Hathitrust<a class="anchor-link" href="#Scraping-Hathitrust">¶</a></h3><p>The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time: about two seconds per page. This can add up, especially when scraping directories from the second half of the nineteenth centuries, which grew in size along with the population of New York City. Happily, only the directories from the 1890s remain:</p>
+<h3 id="Scraping-Hathitrust">Scraping Hathitrust<a class="anchor-link" href="#Scraping-Hathitrust">¶</a></h3><p>The scraping process grabs each OCRed page from each directory in the catalog and stores it locally as a text file with html markup. Scraping a single directory takes a fair amount of time: about two seconds per page. This can add up, especially when scraping directories from the second half of the nineteenth centuries, which grew in size along with the population of New York City. Happily, I've downloaded the text files for most of the nineteenth century directories in Hathitrust and only the directories from the 1890s are left:</p>
 </div>
 </div>
 </div>
@@ -1265,8 +1265,8 @@ Number of directories waiting to be scraped: 4
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are suprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bonafide metropolis with a <a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt">population of approximately 1.5 million</a>. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.</p>
-<p>So what's going on here? The 1890 and 1895 publications above are <em>business</em> directories, not residential ones. It's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.</p>
+<p>It's worth noting the wide variation in the length of the four directories above. The 1890 and 1895 publications are surprisingly short at less than 500 pages each--a length more typical of directories from the 1820s. By the 1890s, New York City was a bona fide metropolis with a <a href="https://www.census.gov/population/www/documentation/twps0027/tab12.txt">population of approximately 1.5 million</a>. That, combined with the addition of advertisements, meant that most New York City address directories of that decade had 1500 pages or more.</p>
+<p>So what's going on here? The shorter publications above are <em>business</em> directories, not residential ones. That's fun data to have, so there's no harm in scraping, cleaning, and importing the business directories too, but I'll exclude them from the main analysis later.</p>
 </div>
 </div>
 </div>
@@ -1276,7 +1276,7 @@ Number of directories waiting to be scraped: 4
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Cleaning">Cleaning<a class="anchor-link" href="#Cleaning">¶</a></h3><p>As each page is scraped, the page number is recorded in the "Scraped" column. If the process is interrupted, the script picks up where it left off the next time it runs. Once all pages in a directory have been scraped, the directory is ready for cleaning.</p>
-<p>The uncleaned directory pages exist locally as text files, full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so removing the markup is easy using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>. Currently four recently-scraped directories, all from the 1880s, are sitting in the cleaning queue:</p>
+<p>The uncleaned directory pages exist locally as text files, full of html markup. Thankfully, Hathitrust was judicious and consistent in their use of "id" and "class" tags, so removing the markup is easy using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>. Currently, four recently-scraped directories, all from the 1880s, are sitting in the cleaning queue:</p>
 </div>
 </div>
 </div>
@@ -1380,7 +1380,7 @@ Number of scraped directories waiting to be cleaned: 4
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The cleaning process produces a collection of text files, each containing OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. As each page is processed, the "Cleaned" column is updated with its page number.</p>
+<p>The cleaning process produces a collection of text files, each containing html-free, OCRed text from one scanned page. Blank pages--pages that had no OCRed text at all--are omitted during the cleaning process. As each page is processed, the "Cleaned" column is updated with its page number.</p>
 </div>
 </div>
 </div>
@@ -1584,7 +1584,7 @@ Number of cleaned directories waiting to be imported: 14
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Currently the main data frame has over six million rows, each representing one line of text from a directory. Once all of the nineteenth-century directories have been imported into the main data frame, the data frame will have about ten million rows and I'll move on to the next phase of this project: identifying which rows represent address entries and parsing those entries into distinct columns ('last name', 'first name', 'occupation', etc.).</p>
-<p>But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this print-out from a subset of the main data frame shows, many of the rows are in fact addresses:</p>
+<p>But before doing that, I'll need to determine which of the rows in the main data frame represent address entries and which represent other types of text. As this subset of the main data frame shows, many of the rows are in fact addresses:</p>
 </div>
 </div>
 </div>
@@ -1677,7 +1677,7 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>But many directory pages contain no addresses at all. These include the introduction and table of contents, and supplemental pages, such as weather tables, informational essays, and advertisements. The rows produced from these pages will need to be excluded from the analysis:</p>
+<p>At the same time, many directory pages contain no addresses at all. These include the introduction and table of contents, and supplemental pages, such as weather tables, informational essays, and advertisements. The rows produced from these pages will need to be excluded from the analysis:</p>
 </div>
 </div>
 </div>
