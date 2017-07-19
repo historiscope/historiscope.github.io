@@ -1092,17 +1092,6 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_colwidth'</span><span class="p">,</span><span class="mi">75</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1114,7 +1103,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/catalog_overview.p'</span><span class="p">)</span>
@@ -1134,7 +1123,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">df_cat</span><span class="p">[(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">pub_year</span> <span class="o">></span> <span class="mi">1799</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">pub_year</span> <span class="o"><</span> <span class="mi">1900</span><span class="p">)]</span>
@@ -1157,7 +1146,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Publisher'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">,</span> <span class="s1">'Total Pages'</span><span class="p">,</span> <span class="s1">'Scraped'</span><span class="p">,</span> <span class="s1">'Cleaned'</span><span class="p">,</span> <span class="s1">'Imported'</span><span class="p">]</span>
@@ -1178,7 +1167,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unscraped</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1198,7 +1187,7 @@ Number of directories waiting to be scraped: 4
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1293,7 +1282,7 @@ Number of directories waiting to be scraped: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">unclean</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Scraped</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1313,7 +1302,7 @@ Number of scraped directories waiting to be cleaned: 4
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1406,7 +1395,7 @@ Number of scraped directories waiting to be cleaned: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ready_for_import</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Cleaned</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df_cat</span><span class="o">.</span><span class="n">Imported</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1426,7 +1415,7 @@ Number of cleaned directories waiting to be imported: 14
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1601,7 +1590,7 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/address_sample.p'</span><span class="p">)</span>
@@ -1611,7 +1600,7 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1694,17 +1683,18 @@ Number of cleaned directories waiting to be imported: 14
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/suppl_sample.p'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_colwidth'</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/suppl_sample.p'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1734,7 +1724,7 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>939805</th>
-<td>This great engraving, the fruit of four years' labor and got up at an e...</td>
+<td>This great engraving, the fruit of four years' labor and got up at an expense of many thousand d...</td>
 </tr>
 <tr>
 <th>939806</th>
@@ -1742,19 +1732,19 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>939807</th>
-<td>The reputation it has attained from the highest sources in this country...</td>
+<td>The reputation it has attained from the highest sources in this country has been endorsed by the...</td>
 </tr>
 <tr>
 <th>939808</th>
-<td>and it staids, beyond a cavil, among the proudest monuments of the Fine...</td>
+<td>and it staids, beyond a cavil, among the proudest monuments of the Fine Arts.</td>
 </tr>
 <tr>
 <th>939809</th>
-<td>The number of likenesses, of the most distinguished men of ºur country,...</td>
+<td>The number of likenesses, of the most distinguished men of ºur country, contained in the engravi...</td>
 </tr>
 <tr>
 <th>939810</th>
-<td>3 with which the artist has succeeded in representing them is regºrie':...</td>
+<td>3 with which the artist has succeeded in representing them is regºrie': an unsurpassed in the an...</td>
 </tr>
 <tr>
 <th>939811</th>
@@ -1762,15 +1752,15 @@ Number of cleaned directories waiting to be imported: 14
 </tr>
 <tr>
 <th>939812</th>
-<td>The Publisher of the Engraving of the United States set are chºr tº r, ...</td>
+<td>The Publisher of the Engraving of the United States set are chºr tº r, cºved from the Emperor of...</td>
 </tr>
 <tr>
 <th>939813</th>
-<td>medal of the weight of three ounces, inost beautifully executed, bearin...</td>
+<td>medal of the weight of three ounces, inost beautifully executed, bearing ºn cue side the likenes...</td>
 </tr>
 <tr>
 <th>939814</th>
-<td>on the reverse a beautiful wreath of oak and laurel leaves, surrounding...</td>
+<td>on the reverse a beautiful wreath of oak and laurel leaves, surrounding the motto “Recua lueri.”</td>
 </tr>
 <tr>
 <th>939815</th>
