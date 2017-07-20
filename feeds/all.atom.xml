@@ -6399,7 +6399,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="python"></category><category term="projects"></category><category term="scraping"></category><category term="beautifulsoup"></category><category term="new york city"></category><category term="historical data"></category></entry><entry><title>Introducing the NYC Directory Project</title><link href="https://historiscope.github.io/firstpost.html" rel="alternate"></link><published>2016-06-12T20:00:00-04:00</published><updated>2016-06-12T20:00:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-12:/firstpost.html</id><summary type="html">
+</content><category term="python"></category><category term="projects"></category><category term="scraping"></category><category term="beautifulsoup"></category><category term="new york city"></category><category term="historical data"></category><category term="cattle"></category></entry><entry><title>Introducing the NYC Directory Project</title><link href="https://historiscope.github.io/firstpost.html" rel="alternate"></link><published>2016-06-12T20:00:00-04:00</published><updated>2016-06-12T20:00:00-04:00</updated><author><name>Ruth Martin</name></author><id>tag:historiscope.github.io,2016-06-12:/firstpost.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
