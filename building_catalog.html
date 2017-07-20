@@ -30,7 +30,7 @@
 
 <meta name="author" content="Ruth Martin" />
 <meta name="description" content="Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds multiple directories, but sometimes contains only one, and a single directory series series may appear across multiple record sets. It's at this point that the search process begins to feel like a long, lonely cattle drive." />
-<meta name="keywords" content="python, projects, new york city, historical data, beautifulsoup, scraping">
+<meta name="keywords" content="python, projects, scraping, beautifulsoup, new york city, historical data">
 <meta property="og:site_name" content="Historiscope News"/>
 <meta property="og:title" content="Building a Local Catalog"/>
 <meta property="og:description" content="Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds multiple directories, but sometimes contains only one, and a single directory series series may appear across multiple record sets. It's at this point that the search process begins to feel like a long, lonely cattle drive."/>
@@ -43,10 +43,10 @@
 <meta property="article:section" content="posts"/>
 <meta property="article:tag" content="python"/>
 <meta property="article:tag" content="projects"/>
+<meta property="article:tag" content="scraping"/>
+<meta property="article:tag" content="beautifulsoup"/>
 <meta property="article:tag" content="new york city"/>
 <meta property="article:tag" content="historical data"/>
-<meta property="article:tag" content="beautifulsoup"/>
-<meta property="article:tag" content="scraping"/>
 <meta property="og:image" content="">
 
   <title>Historiscope News &ndash; Building a Local Catalog</title>
@@ -1075,13 +1075,14 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds multiple directories, but sometimes contains only one, and a single directory series series may appear across multiple record sets. It's at this point that the search process begins to feel like a long, lonely cattle drive.</p>
 <p>So before I could proceed, I first had to create my own mini-catalog: a little slice of Hathitrust, stored in a local data frame and dedicated to this project. My local catalog helps me keep track of what I've found so I don't waste time rounding up the same directories over and over again. I also use my local catalog to store bibliographic data associated with each directory--things like title, originating repository, and publication year. And as I convert the text pages stored on Hathitrust into a multi-year data frame of address entries, my local catalog helps me keep on top of where I am in the scraping, cleaning, and importing process.</p>
-<p>Here's a snippet of the local catalog. I've omitted some columns for readability.</p>
+<p>Here's an <a href="https://catalog.hathitrust.org/Record/008922973">example</a> of what a record set looks like in Hathitrust.</p>
+<p>And here's a snippet of my current local catalog (I've omitted some columns for readability):</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1098,7 +1099,7 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1229,7 +1230,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">'../blogdata/catalog_scrape.p'</span><span class="p">)</span>
@@ -1240,7 +1241,7 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1357,11 +1358,11 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [14]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Create list of Hathitrust page ids for directory holdings</span>
-<span class="n">ht_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'100734456'</span><span class="p">,</span> <span class="s1">'008925998'</span><span class="p">,</span> <span class="s1">'012507789'</span><span class="p">]</span>
+<span class="n">ht_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'100734456'</span><span class="p">,</span> <span class="s1">'008925998'</span><span class="p">,</span><span class="s1">'012507789'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1378,7 +1379,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [15]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># base url for directory holdings pages</span>
@@ -1409,7 +1410,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># return any record numbers that aren't already in the local catalog</span>
@@ -1467,13 +1468,13 @@ The following records are new and will be added to the catalog data frame:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop through holdings pages, scraping info about directory catalog id, title,</span>
 <span class="c1">## year of publication, repository name, and last page (total_pages)</span>
 <span class="k">for</span> <span class="n">rec_id</span> <span class="ow">in</span> <span class="n">new_ht_dirs</span> <span class="p">:</span>
-
+    
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     
     <span class="c1"># create full url</span>
@@ -1485,7 +1486,7 @@ The following records are new and will be added to the catalog data frame:
     
     <span class="c1"># convert html to soup</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">cat_html</span><span class="p">,</span> <span class="s1">'lxml'</span><span class="p">)</span>
-
+    
     <span class="c1"># in main html, loop through 'span/IndItem' to get list of pub_years </span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'span'</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span> <span class="p">:</span> <span class="s1">'IndItem'</span><span class="p">})</span> <span class="p">:</span>
         <span class="n">pub_year</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">'\d</span><span class="si">{4}</span><span class="s1">'</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
@@ -1495,29 +1496,35 @@ The following records are new and will be added to the catalog data frame:
             <span class="n">pub_year</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">'\d</span><span class="si">{4}</span><span class="s1">'</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">pub_year_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub_year</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-        
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'  Holdings:  '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
+    
+    <span class="c1"># retrieve title from main html</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">': '</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' |'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span> <span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">'untitled'</span>
+    <span class="n">title_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">title</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+    
+    <span class="c1"># create record_id_list</span>
+    <span class="n">record_id_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">rec_id</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+    
+    
     <span class="c1"># ...loop through 'em/original_from' to get list of repositories</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'em'</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span> <span class="p">:</span> <span class="s1">'original_from'</span><span class="p">}):</span>
-        
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'em'</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span> <span class="p">:</span> <span class="s1">'original_from'</span><span class="p">}):</span>       
         <span class="n">repository</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'(original from '</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">')'</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">repository</span> <span class="p">:</span>
             <span class="n">repository</span> <span class="o">=</span> <span class="s1">'unknown'</span>
         <span class="k">else</span> <span class="p">:</span>
             <span class="n">repository</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'(original from '</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">')'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">repository_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">repository</span><span class="p">)</span>
-
+    
     <span class="c1"># ...loop through 'div/accessLinks' to get link to each directory</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'div'</span><span class="p">,</span> <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span> <span class="p">:</span> <span class="s1">'accessLinks'</span><span class="p">})</span> <span class="p">:</span>
         <span class="c1">#then loop through the links in that div and...</span>
         <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'a'</span><span class="p">):</span>
-            <span class="c1"># ...get the cat_id from each <a> and add to list</span>
+            <span class="c1"># ...get the cat_id from each a and add to list</span>
             <span class="n">dir_address</span> <span class="o">=</span> <span class="s1">'https:'</span> <span class="o">+</span> <span class="n">link</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'href'</span><span class="p">)</span>
             <span class="n">cat_id</span> <span class="o">=</span> <span class="n">dir_address</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'2027/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">cat_id_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cat_id</span><span class="p">)</span>
-
-            
+            <span class="c1">##############ABOVE#####</span>
             <span class="c1"># follow each link and grab the 'last page' url</span>
             <span class="n">dir_html</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">dir_address</span><span class="p">)</span>
             <span class="n">f</span> <span class="o">=</span> <span class="n">dir_html</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -1526,17 +1533,10 @@ The following records are new and will be added to the catalog data frame:
             <span class="n">total_pages_parsed</span> <span class="o">=</span> <span class="n">total_pages</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'seq='</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">total_pages_parsed</span> <span class="o">=</span> <span class="n">total_pages_parsed</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'"'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">total_pages_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_pages_parsed</span><span class="p">)</span>
-
-    
-    <span class="c1"># retrieve title from main html</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">': '</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' |'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span> <span class="p">:</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="s1">'untitled'</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"  Title: "</span> <span class="o">+</span> <span class="n">title</span><span class="p">)</span>
-    <span class="n">title_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">title</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
-    
-    <span class="c1"># created record_id_list</span>
-    <span class="n">record_id_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">rec_id</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+            
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'  Title: '</span> <span class="o">+</span> <span class="n">title</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'  Holdings:  '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1546,11 +1546,11 @@ The following records are new and will be added to the catalog data frame:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Scraping https://catalog.hathitrust.org/Record/008925998
-  Holdings:  5
   Title: Longworth's American almanac, New-York...
+  Holdings:  5
 Scraping https://catalog.hathitrust.org/Record/012507789
-  Holdings:  1
   Title: The directory of the city of New York, 
+  Holdings:  1
 </pre>
 </div>
 </div>
@@ -1569,7 +1569,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [18]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># set up numbering for new additions to dataframe</span>
@@ -1599,7 +1599,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">source_id_pds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">source_id_list</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -1628,7 +1628,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a temporary dataframe from the lists    </span>
@@ -1655,7 +1655,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">df_cat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>
@@ -1667,7 +1667,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1856,7 +1856,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that my local catalog is functioning, I can add new record sets to the project as I locate them, or as new ones arrive in Hathitrust. In meantime, I can begin <a href="https://historiscope.github.io/CSI-Part1.html">scraping, cleaning, and importing</a> the newly added directories.</p>
+<p>Now that my local catalog is up and running, I can add new record sets to the project as I locate them, and as new ones arrive in Hathitrust. In the meantime, I can begin <a href="https://historiscope.github.io/CSI-Part1.html">scraping, cleaning, and importing</a> the newly added directories.</p>
 </div>
 </div>
 </div>
@@ -1895,10 +1895,10 @@ Scraping https://catalog.hathitrust.org/Record/012507789
     <p>
       <a href="https://historiscope.github.io/tag/python.html">python</a>
       <a href="https://historiscope.github.io/tag/projects.html">projects</a>
+      <a href="https://historiscope.github.io/tag/scraping.html">scraping</a>
+      <a href="https://historiscope.github.io/tag/beautifulsoup.html">beautifulsoup</a>
       <a href="https://historiscope.github.io/tag/new-york-city.html">new york city</a>
       <a href="https://historiscope.github.io/tag/historical-data.html">historical data</a>
-      <a href="https://historiscope.github.io/tag/beautifulsoup.html">beautifulsoup</a>
-      <a href="https://historiscope.github.io/tag/scraping.html">scraping</a>
     </p>
   </div>
 
