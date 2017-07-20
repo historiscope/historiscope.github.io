@@ -5584,6 +5584,14 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. Typically, a record set holds &lt;a href="https://catalog.hathitrust.org/Record/100513654"&gt;various years from the same title&lt;/a&gt;, but a single title may appear across two or more record sets, and sometimes a record set contains only one directory. In addition, many of the record sets associated with the subject heading "&lt;em&gt;New York (N.Y.) &gt; Directories&lt;/em&gt;" are not specifically &lt;em&gt;address&lt;/em&gt; directories. This is when the search process begins to feel like a long, lonely cattle drive...&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;So before I could proceed, I first had to create my own mini-catalog: a little slice of Hathitrust, stored in a local data frame and dedicated to this project. My local catalog helps me keep track of what I've found so I don't waste time rounding up the same directories over and over again. I also use my local catalog to store bibliographic data associated with each directory--things like title, originating repository, and publication year. And as I convert the text pages stored on Hathitrust into a multi-year data frame of address entries, my local catalog helps me keep on top of where I am in the scraping, cleaning, and importing process.&lt;/p&gt;
 &lt;p&gt;Here's a snippet of the local catalog. I've omitted some columns for readability.&lt;/p&gt;
 &lt;/div&gt;
