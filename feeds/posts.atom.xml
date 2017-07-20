@@ -5592,7 +5592,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
@@ -5601,34 +5601,21 @@ h6:hover .anchor-link {
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib.request&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HTML&lt;/span&gt;
 
-&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/catalog_snippet.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;snippet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/catalog_snippet.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HTML&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;snippet&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_html&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[11]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;style&gt;
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&lt;/style&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_html rendered_html output_subarea "&gt;
 &lt;table border="1" class="dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
-&lt;th&gt;&lt;/th&gt;
 &lt;th&gt;source_id&lt;/th&gt;
 &lt;th&gt;record_id&lt;/th&gt;
 &lt;th&gt;cat_id&lt;/th&gt;
@@ -5643,7 +5630,6 @@ h6:hover .anchor-link {
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;th&gt;10&lt;/th&gt;
 &lt;td&gt;11&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.21539051&lt;/td&gt;
@@ -5656,7 +5642,6 @@ h6:hover .anchor-link {
 &lt;td&gt;524&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;11&lt;/th&gt;
 &lt;td&gt;12&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.20865276&lt;/td&gt;
@@ -5669,7 +5654,6 @@ h6:hover .anchor-link {
 &lt;td&gt;523&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;12&lt;/th&gt;
 &lt;td&gt;13&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186659&lt;/td&gt;
@@ -5682,7 +5666,6 @@ h6:hover .anchor-link {
 &lt;td&gt;540&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;68&lt;/th&gt;
 &lt;td&gt;69&lt;/td&gt;
 &lt;td&gt;000053989&lt;/td&gt;
 &lt;td&gt;mdp.39015036700683&lt;/td&gt;
@@ -5695,7 +5678,6 @@ h6:hover .anchor-link {
 &lt;td&gt;1680&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;69&lt;/th&gt;
 &lt;td&gt;70&lt;/td&gt;
 &lt;td&gt;000053989&lt;/td&gt;
 &lt;td&gt;mdp.39015050646465&lt;/td&gt;
@@ -5708,7 +5690,6 @@ h6:hover .anchor-link {
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;70&lt;/th&gt;
 &lt;td&gt;71&lt;/td&gt;
 &lt;td&gt;000053989&lt;/td&gt;
 &lt;td&gt;mdp.39015050646473&lt;/td&gt;
@@ -5722,7 +5703,6 @@ h6:hover .anchor-link {
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5744,33 +5724,18 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df_cat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_pickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../blogdata/catalog_scrape.p'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_cat&lt;/span&gt;
+&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HTML&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_html&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;style&gt;
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&lt;/style&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_html rendered_html output_subarea "&gt;
 &lt;table border="1" class="dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
-&lt;th&gt;&lt;/th&gt;
 &lt;th&gt;source_id&lt;/th&gt;
 &lt;th&gt;record_id&lt;/th&gt;
 &lt;th&gt;cat_id&lt;/th&gt;
@@ -5785,8 +5750,7 @@ h6:hover .anchor-link {
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;th&gt;10&lt;/th&gt;
-&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.21539051&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -5798,8 +5762,7 @@ h6:hover .anchor-link {
 &lt;td&gt;524&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;11&lt;/th&gt;
-&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.20865276&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -5811,8 +5774,7 @@ h6:hover .anchor-link {
 &lt;td&gt;523&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;12&lt;/th&gt;
-&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186659&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -5824,8 +5786,7 @@ h6:hover .anchor-link {
 &lt;td&gt;540&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;13&lt;/th&gt;
-&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186641&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -5837,8 +5798,7 @@ h6:hover .anchor-link {
 &lt;td&gt;477&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;14&lt;/th&gt;
-&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186625&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -5851,7 +5811,6 @@ h6:hover .anchor-link {
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6030,11 +5989,11 @@ The following records are new and will be added to the catalog data frame:
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'div'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attrs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'id'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'accessLinks'&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="c1"&gt;#then loop through the links in that div and...&lt;/span&gt;
         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-            &lt;span class="c1"&gt;# ...get the cat_id from each a and add to list&lt;/span&gt;
+            &lt;span class="c1"&gt;# ...get the cat_id from each link and add to list&lt;/span&gt;
             &lt;span class="n"&gt;dir_address&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'https:'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
             &lt;span class="n"&gt;cat_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dir_address&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'2027/'&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
             &lt;span class="n"&gt;cat_id_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cat_id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="c1"&gt;##############ABOVE#####&lt;/span&gt;
+            
             &lt;span class="c1"&gt;# follow each link and grab the 'last page' url&lt;/span&gt;
             &lt;span class="n"&gt;dir_html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dir_address&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
             &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dir_html&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -6170,33 +6129,18 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df_cat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_cat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_temp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;df_cat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df_cat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;col_names&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;df_cat&lt;/span&gt;
+&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HTML&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_html&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[10]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;style&gt;
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&lt;/style&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_html rendered_html output_subarea "&gt;
 &lt;table border="1" class="dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
-&lt;th&gt;&lt;/th&gt;
 &lt;th&gt;source_id&lt;/th&gt;
 &lt;th&gt;record_id&lt;/th&gt;
 &lt;th&gt;cat_id&lt;/th&gt;
@@ -6211,8 +6155,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;th&gt;10&lt;/th&gt;
-&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.21539051&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -6224,8 +6167,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;524&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;11&lt;/th&gt;
-&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.20865276&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -6237,8 +6179,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;523&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;12&lt;/th&gt;
-&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186659&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -6250,8 +6191,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;540&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;13&lt;/th&gt;
-&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186641&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -6263,8 +6203,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;477&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;14&lt;/th&gt;
-&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;100734456&lt;/td&gt;
 &lt;td&gt;chi.102186625&lt;/td&gt;
 &lt;td&gt;The New York City directory&lt;/td&gt;
@@ -6276,8 +6215,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;458&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;0&lt;/th&gt;
-&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
 &lt;td&gt;008925998&lt;/td&gt;
 &lt;td&gt;njp.32101066152420&lt;/td&gt;
 &lt;td&gt;Longworth's American almanac, New-York...&lt;/td&gt;
@@ -6289,8 +6227,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;td&gt;17&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;008925998&lt;/td&gt;
 &lt;td&gt;njp.32101066152404&lt;/td&gt;
 &lt;td&gt;Longworth's American almanac, New-York...&lt;/td&gt;
@@ -6302,8 +6239,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;td&gt;18&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;008925998&lt;/td&gt;
 &lt;td&gt;njp.32101080456856&lt;/td&gt;
 &lt;td&gt;Longworth's American almanac, New-York...&lt;/td&gt;
@@ -6315,8 +6251,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;td&gt;19&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;008925998&lt;/td&gt;
 &lt;td&gt;njp.32101080456872&lt;/td&gt;
 &lt;td&gt;Longworth's American almanac, New-York...&lt;/td&gt;
@@ -6328,8 +6263,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
 &lt;td&gt;008925998&lt;/td&gt;
 &lt;td&gt;njp.32101066152396&lt;/td&gt;
 &lt;td&gt;Longworth's American almanac, New-York...&lt;/td&gt;
@@ -6341,8 +6275,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;td&gt;21&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
 &lt;td&gt;012507789&lt;/td&gt;
 &lt;td&gt;chi.27275303&lt;/td&gt;
 &lt;td&gt;The directory of the city of New York,&lt;/td&gt;
@@ -6355,7 +6288,6 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
