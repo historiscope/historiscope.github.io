@@ -4602,7 +4602,7 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds &lt;a href="https://catalog.hathitrust.org/Record/008922973"&gt;multiple&lt;/a&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds &lt;a href="https://catalog.hathitrust.org/Record/008922973"&gt;multiple directories&lt;/a&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5583,7 +5583,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds &lt;a href="https://catalog.hathitrust.org/Record/008922973"&gt;multiple&lt;/a&gt; directories, but sometimes contains only one, and a single directory series series may appear across multiple record sets. It's at this point that the search process begins to feel like a long, lonely cattle drive.&lt;/p&gt;
+&lt;p&gt;Finding New York City directories in Hathitrust is a little like herding cattle: you find the first bunch quickly, and then spend the rest of your time rounding up strays. Instead of a long list of individual directories, searching Hathitrust yields a series of record sets into which the individual directories have been organized. A record set often holds &lt;a href="https://catalog.hathitrust.org/Record/008922973"&gt;multiple directories&lt;/a&gt;, but sometimes contains only one, and a single directory series series may appear across multiple record sets. It's at this point that the search process begins to feel like a long, lonely cattle drive.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
