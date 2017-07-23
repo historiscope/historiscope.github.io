@@ -1333,7 +1333,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In Hathitrust, the stable URL for each set of records consists of a record number appended to a base URL. The script stores this base URL in a variable for use in the loop later. I'll also create a series of lists to store the data gathered during the loop. To build my local catalog, I'll scrape the title, publication year, last page number, and catalog number of each directory in the record set, as well as the name of the repository that donated the directory to Hathitrust.</p>
+<p>Before scraping, I check the list against the existing data frame in case I've scraped some of these record sets already. I've also added a few lines of code to anticipate the possibility that a user will run the script with an empty record list.</p>
 </div>
 </div>
 </div>
@@ -1342,52 +1342,21 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># base url for directory holdings pages</span>
-<span class="n">ht_url</span> <span class="o">=</span> <span class="s1">'https://catalog.hathitrust.org/Record/'</span>
-
-<span class="c1"># create lists to store data from loop</span>
-
-<span class="n">source_id_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">record_id_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">cat_id_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">title_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">pub_year_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">total_pages_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">repository_list</span> <span class="o">=</span> <span class="p">[]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Before scraping, I check the list against the existing data frame in case I've scraped some of these record sets already. I've also added a few lines of code to anticipate the possibility that a user will run the script with an empty record list.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># return any record numbers that aren't already in the local catalog</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># return any record numbers not already in the local catalog</span>
 <span class="n">new_ht_dirs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">ht_dirs</span><span class="p">,</span> <span class="n">df_cat</span><span class="o">.</span><span class="n">record_id</span><span class="p">)</span>
-
-<span class="c1"># return any record numbers that duplicated those in the local catalog</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_ht_dirs</span><span class="p">)</span>
+<span class="c1"># return any record numbers that were already in the local catalog</span>
 <span class="n">dup_ht_dirs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">ht_dirs</span><span class="p">,</span> <span class="n">new_ht_dirs</span><span class="p">)</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="n">dup_ht_dirs</span><span class="p">)</span>
 <span class="c1"># if the user ran the script with an empty record list, return an error message and exit.</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ht_dirs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">ht_dirs</span> <span class="p">:</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">'Please add record numbers to the list and rerun this script.'</span><span class="p">)</span>
 <span class="c1"># if any record ids already exist in the local catalog, let the user know which ones.</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dup_ht_dirs</span><span class="p">)</span> <span class="o">></span> <span class="mi">0</span> <span class="p">:</span>
+<span class="k">if</span> <span class="n">dup_ht_dirs</span><span class="o">.</span><span class="n">size</span> <span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Alert: The following records are already in the catalog data frame:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
     <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="s1">'  '</span> <span class="o">+</span> <span class="n">rec_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec_id</span> <span class="ow">in</span> <span class="n">dup_ht_dirs</span><span class="p">]</span>
 <span class="c1"># if there are new records to be added, let the user know which ones.</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_ht_dirs</span><span class="p">)</span> <span class="o">></span> <span class="mi">0</span> <span class="p">:</span>
+<span class="k">if</span> <span class="n">new_ht_dirs</span><span class="o">.</span><span class="n">size</span> <span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">The following records are new and will be added to the catalog data frame:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
     <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="s1">'  '</span> <span class="o">+</span> <span class="n">rec_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec_id</span> <span class="ow">in</span> <span class="n">new_ht_dirs</span><span class="p">]</span>
 <span class="c1"># if all the records already exist in the local catalog, return an error message and exit.</span>
@@ -1401,7 +1370,9 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
+<pre>['008925998' '012507789']
+['100734456']
+
 Alert: The following records are already in the catalog data frame:
 
   100734456
@@ -1422,13 +1393,61 @@ The following records are new and will be added to the catalog data frame:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this case, one of the three records in the list is already in the local data frame.  This information is reported to the user and the record is eliminated from the list.</p>
-<p>The script now loops through the remaining items on the list, scraping information from hathitrust and storing it in a set of lists. Most of the data will be scraped from the main record page, but the last page number of each directory can only be obtained by following the link to that directory's page, so that part of the script gets a tiny bit tricky:</p>
+<p>Now that the script has verified the record numbers that will be processed, it can use those record numbers to access the relevant pages on Hathitrust. The stable URL for each set of records consists of the record number appended to a base URL, which I store here in a variable for use in the loop:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># base url for directory holdings pages</span>
+<span class="n">ht_url</span> <span class="o">=</span> <span class="s1">'https://catalog.hathitrust.org/Record/'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next, I create a series of lists to store the data that I'll scrape from Hathitrust during the loop: the title, publication year, last page number, and catalog number of each directory in the record set, as well as the name of the repository that donated the directory to Hathitrust:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create lists to store data from loop</span>
+<span class="n">source_id_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">record_id_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cat_id_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">title_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pub_year_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">total_pages_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">repository_list</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The script now loops through the remaining items on the list, scraping information from hathitrust and storing it in a set of lists. Most of the data will be scraped from the main record page, but the last page number of each directory can only be obtained by following the link to each directory's page, so that part of the script gets a tiny bit tricky:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop through holdings pages, scraping info about directory catalog id, title,</span>
@@ -1522,14 +1541,14 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The script scrapes the pages of two record sets, finding five directories associated with the first record set and one with the second.</p>
-<p>By this point, the script has collected all of the bibliographic data and stored it in lists. But before adding that data to the local data frame, I first need to create a unique source id for each directory. Down the road, I'll use the catalog as a dictionary so I can look up the publication year associated with each address entry, so I want a source number to use as a primary key:</p>
+<p>In this case, the script scrapes the pages of two record sets, finding five directories associated with the first record set and one with the second.</p>
+<p>By this point, the script has collected all of the bibliographic data and stored it in lists. But before adding that data to the local data frame, I first need to create a unique source id for each directory. Down the road, I'll use the catalog as a dictionary to look up the publication year associated with each address entry, so I want unique source number for each directory to serve as a primary key:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># set up numbering for new additions to dataframe</span>
@@ -1559,7 +1578,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">source_id_pds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">source_id_list</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -1588,7 +1607,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a temporary dataframe from the lists    </span>
@@ -1615,7 +1634,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cat</span> <span class="o">=</span> <span class="n">df_cat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>
