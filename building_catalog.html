@@ -1570,7 +1570,7 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 <span class="n">total_pages_pds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">total_pages_list</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">repository_pds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">repository_list</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
 
-<span class="c1"># create empty series of correct lengeth for scraped, cleaned, and imported</span>
+<span class="c1"># create empty series of correct length for scraped, cleaned, and imported</span>
 <span class="n">scraped_pds</span> <span class="o">=</span> <span class="n">cleaned_pds</span> <span class="o">=</span> <span class="n">imported_pds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_additions</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
