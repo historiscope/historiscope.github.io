@@ -29,11 +29,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <meta name="author" content="Ruth Martin" />
-<meta name="description" content="Using BeautifulSoup, I wrote a script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository." />
+<meta name="description" content="Using BeautifulSoup, I wrote the following script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository." />
 <meta name="keywords" content="data science, python, projects, new york city, historical data, visualization, bar plots">
 <meta property="og:site_name" content="Historiscope News"/>
 <meta property="og:title" content="Fun with Bar Plots: Examining the Holdings"/>
-<meta property="og:description" content="Using BeautifulSoup, I wrote a script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository."/>
+<meta property="og:description" content="Using BeautifulSoup, I wrote the following script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://historiscope.github.io/Holdings.html"/>
 <meta property="og:type" content="article"/>
@@ -250,6 +250,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -270,11 +271,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1074,7 +1070,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, I wrote a script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.</p>
+<p>Using <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, I wrote the following script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.</p>
 <p>To get started, after importing my libraries, I'll load the data. Although I have a few directories from the 1700s and the 1900s, I'm only interested in the nineteenth century for the moment, so I'll limit the data frame to that era:</p>
 </div>
 </div>
@@ -1216,7 +1212,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xm4PEdZL/DvC4EsbElIIBGNAVFBUbYoCiKgIHhVVlGu
@@ -1701,7 +1698,8 @@ MhnJZDN5jGQykslIJiOZjGQyksmSHbhzXAMAAAAAsL8dxFOFAAAAAACwjymuAQAAAACYFMU1ILoC
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xl8VNXdx/Hvz7Avgihu0Bq1giQQgoSgUsIiS6uIoFIX
@@ -2257,7 +2255,8 @@ YFc+B2E/bU3EC0QFAAAAAElFTkSuQmCC
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmYFNXZ9/HvzSK7oqAoaBg0qMDMMMCALLIjGEVF2UQW

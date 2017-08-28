@@ -5,7 +5,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;, I wrote a script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;Using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;, I wrote the following script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -162,6 +162,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -182,11 +183,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -986,7 +982,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;, I wrote a script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.&lt;/p&gt;
+&lt;p&gt;Using &lt;a href="https://www.crummy.com/software/BeautifulSoup/"&gt;BeautifulSoup&lt;/a&gt;, I wrote the following script to identify and gather the holdings information for the New York City directory collection in Hathitrust. The script collected useful information about each directory, such as its title, publisher, publication year, and the total number of pages (really, files) in the digital version of the directory. With that information stored in my catalog data frame, I'm going to produce some tables to get a better sense of what I have. Specifically, I'd like to know how many directories I have for each year from 1800 to 1899, and how that collection breaks down by publisher and repository.&lt;/p&gt;
 &lt;p&gt;To get started, after importing my libraries, I'll load the data. Although I have a few directories from the 1700s and the 1900s, I'm only interested in the nineteenth century for the moment, so I'll limit the data frame to that era:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1128,7 +1124,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xm4PEdZL/DvC4EsbElIIBGNAVFBUbYoCiKgIHhVVlGu
@@ -1613,7 +1610,8 @@ MhnJZDN5jGQykslIJiOZjGQyksmSHbhzXAMAAAAAsL8dxFOFAAAAAACwjymuAQAAAACYFMU1ILoC
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xl8VNXdx/Hvz7Avgihu0Bq1giQQgoSgUsIiS6uIoFIX
@@ -2169,7 +2167,8 @@ YFc+B2E/bU3EC0QFAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABa4AAAJxCAYAAACqrCV/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmYFNXZ9/HvzSK7oqAoaBg0qMDMMMCALLIjGEVF2UQW
@@ -3036,6 +3035,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -3056,11 +3056,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -3963,7 +3958,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;
 
@@ -3971,7 +3967,8 @@ Number of directories waiting to be scraped: 4
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -4078,7 +4075,8 @@ Number of directories waiting to be scraped: 4
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;
 
@@ -4086,7 +4084,8 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -4191,7 +4190,8 @@ Number of scraped directories waiting to be cleaned: 4
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;
 
@@ -4199,7 +4199,8 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -4384,7 +4385,8 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -4478,7 +4480,8 @@ Number of cleaned directories waiting to be imported: 14
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[12]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[12]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
 &lt;style&gt;
@@ -4759,6 +4762,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -4779,11 +4783,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -5611,7 +5610,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea "&gt;
 &lt;table border="1" class="dataframe"&gt;
 &lt;thead&gt;
@@ -5731,7 +5731,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea "&gt;
 &lt;table border="1" class="dataframe"&gt;
 &lt;thead&gt;
@@ -5877,7 +5878,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;['008925998' '012507789']
 ['100734456']
@@ -6031,7 +6033,8 @@ The following records are new and will be added to the catalog data frame:
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Scraping https://catalog.hathitrust.org/Record/008925998
   Title: Longworth's American almanac, New-York...
@@ -6155,7 +6158,8 @@ Scraping https://catalog.hathitrust.org/Record/012507789
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea "&gt;
 &lt;table border="1" class="dataframe"&gt;
 &lt;thead&gt;
@@ -6513,6 +6517,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -6533,11 +6538,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
